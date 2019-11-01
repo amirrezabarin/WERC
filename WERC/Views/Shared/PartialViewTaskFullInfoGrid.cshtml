@@ -1,0 +1,174 @@
+﻿
+@using Model.ToolsModels.Grid
+
+@model VmJsGrid
+
+@{
+    var jsGridHtmlElementId = "_" + Model.HtmlElementId;
+    var jsGridObjectId = Model.HtmlElementId;
+    var detailsDialogHtmlElementId = Guid.NewGuid().ToString().Replace("-", "_");
+    var jsGridLoadDataUrl = Url.Action(Model.DataAction, Model.DataController);
+    var jsGridUpdateDataUrl = Url.Action(Model.EditAction, Model.EditController);
+    var Display = Model.ReadOnly ? "hidden" : "";
+}
+
+<div class="row">
+     <div id="@jsGridHtmlElementId"></div>
+ 
+</div>
+<script>
+  
+
+    var judgeRowIndex = 0;
+    var gradeRowIndex = 0;
+
+    $(document).ready(function () {
+
+        $("#@jsGridHtmlElementId").jsGrid({
+            width: "100%",
+            height: "auto",
+            filtering: false,
+            editing: true,
+            inserting: false,
+            autoload: true,
+            paging: true,
+            pageSize: 50,
+            pageIndex: 1,
+            pageButtonCount: 5,
+            datatype: "json",
+            updateOnResize: false,
+            rowClick: function (args) {
+
+
+            },
+            onDataLoading: function (args) {
+
+
+            },
+            onDataLoaded: function (args) {
+
+                for (i = judgeRowIndex - 1; i >= 0; i--) {
+                    $("#judgeDiv" + i).on('shown.bs.collapse', function () {
+
+                        $(this).prev().addClass("glyphicon-chevron-up");
+                        $(this).prev().removeClass("glyphicon-chevron-down");
+                    });
+
+                    $("#judgeDiv" + i).on('hide.bs.collapse', function () {
+
+                        $(this).prev().addClass("glyphicon-chevron-down");
+                        $(this).prev().removeClass("glyphicon-chevron-up");
+                    });
+
+                }
+                
+                for (i = gradeRowIndex - 1; i >= 0; i--) {
+                    $("#gradeDiv" + i).on('shown.bs.collapse', function () {
+
+                        $(this).prev().addClass("glyphicon-chevron-up");
+                        $(this).prev().removeClass("glyphicon-chevron-down");
+                    });
+
+                    $("#gradeDiv" + i).on('hide.bs.collapse', function () {
+
+                        $(this).prev().addClass("glyphicon-chevron-down");
+                        $(this).prev().removeClass("glyphicon-chevron-up");
+                    });
+
+                }
+
+            },
+            controller: {
+                loadData: function (filter) {
+
+                    return $.ajax({
+                        type: "GET",
+                        url: "@jsGridLoadDataUrl",
+                        data: { filter }
+                    });
+                }
+            },
+
+            fields:
+                [
+                    { name: "Id", type: "number", visible: false },
+                    { name: "Name", title: "@Model["Task Name"]", type: "text", width: 70 },
+                    @*{ name: "Grade", title: "@Model["Score Sheet"]", type: "text", width: 120 },*@
+                    {
+                        name: "Grades", title: "@Model["Grades"]", width: 180, type: "text",
+                        itemTemplate: function (item) {
+
+                            var result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
+                            var gradeList = [''];
+                            if (item != null) {
+                                gradeList = item.split('■');
+                            }
+                            var gradeHtmlList = '';
+
+                            for (i = 0; i < gradeList.length; i++) {
+                                gradeHtmlList += '<li>' + gradeList[i] + '</li>';
+                            }
+
+                            var collapsElement = $(
+                                '<div id="gradeDiv' + gradeRowIndex + '" class="collapse">' +
+                                '<ul>' + gradeHtmlList + '</ul>' +
+                                '</div>');
+
+                            var customButton = $("<button>")
+                                .attr({
+                                    "data-toggle": "collapse",
+                                    "class": "btn btn-success glyphicon glyphicon-chevron-down",
+                                    "data-target": "#gradeDiv" + gradeRowIndex,
+                                })
+                                .on("click", function () {
+                                    $(this).next().collapse("toggle");
+                                    return false;
+                                });
+                            
+                            gradeRowIndex++;
+                            return result.add(customButton).add(collapsElement);
+                        }
+                    },                    
+                    {
+                        name: "Judges", title: "@Model["Judges"]", width: 80, type: "text",
+                        itemTemplate: function (item) {
+
+                            var result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
+                            var judgeList = [''];
+                            if (item != null) {
+                                judgeList = item.split(',');
+                            }
+                            var judgeHtmlList = '';
+
+                            for (i = 0; i < judgeList.length; i++) {
+                                judgeHtmlList += '<li>' + judgeList[i] + '</li>';
+                            }
+
+                            var collapsElement = $(
+                                '<div id="judgeDiv' + judgeRowIndex + '" class="collapse">' +
+                                '<ul>' + judgeHtmlList + '</ul>' +
+                                '</div>');
+                           
+                            var customButton = $("<button>")
+                                .attr({
+                                    "data-toggle": "collapse",
+                                    "class": "btn btn-success glyphicon glyphicon-chevron-down",
+                                    "data-target": "#judgeDiv" + judgeRowIndex,
+                                })
+                                .on("click", function () {
+                                    $(this).next().collapse("toggle");
+                                    return false;
+                                });
+
+                            judgeRowIndex++;
+                            return result.add(customButton).add(collapsElement);
+                        }
+                    },                    
+                    { name: "Description", title: "@Model["Description"]", type: "text", width: 120 },
+
+
+            ]
+        });
+    });
+
+</script>

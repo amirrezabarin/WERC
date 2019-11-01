@@ -1,0 +1,657 @@
+﻿
+@model Model.ViewModels.TeamSafetyItem.VmTeamSafetyItemCollection
+
+@{
+    var firstTime = true;
+    var firstAccordionLinkId = "";
+}
+<link href="~/Resources/CSS/accordion_.css" rel="stylesheet" />
+<link href="~/Resources/CSS/safety-Item.css" rel="stylesheet" />
+<div class="col-xs-12">
+    <span class="fa-2x">Experimental Safety Plan </span>
+    <a id="referencesButton" class="btn btn-lg btn-warning">References</a>
+</div>
+
+@*Main Content*@
+<i class="text-danger fa-2x">'*'</i> Means Requiered Item
+<h3 class="col-xs-12">
+    Please submit the ESP after modifying and saving your changes
+</h3>
+
+@if (Request.IsAuthenticated && Model.CurrentUserRoles != null &&
+           (Model.CurrentUserRoles.Contains("Leader") || Model.CurrentUserRoles.Contains("Advisor") || Model.CurrentUserRoles.Contains("CoAdvisor")))
+{
+    <a name="topOfESPErrorMessage"></a>
+    <p class="error safety-error-message" id="errorMessagesContainer"></p>
+}
+
+<div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10 text-center">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+            <script>
+                var safetyItemSubmitObject =
+                {
+                    attachmentRequiredHiddenId: "",
+                    attachedFileInputId: "",
+                    textRequiredHiddenId: "",
+                    descriptionContentId: "",
+                    safetyItemName: "",
+                };
+
+                var safetyItemSubmitObjectList = [];
+
+            </script>
+            @{
+                var teamId = Model.TeamSafetyItemList.First().TeamId;
+                var disableSubmit = "disabled";
+                int indexCounter = 0;
+            }
+
+            @foreach (var item in Model.TeamSafetyItemList)
+            {
+                var selectedFileNameContainerId = "selectedFileNameContainer" + item.SafetyItemId;
+                var attachedFileId = "attachedFile" + item.SafetyItemId;
+                var attachedFileInputId = "attachedFileInput" + item.SafetyItemId;
+                var attachedFileInputTrigerId = "attachedFileInputTriger" + item.SafetyItemId;
+                var attachedFileUrlHiddenId = "attachedFileUrlHidden" + item.SafetyItemId;
+
+                var headingId = "heading" + item.SafetyItemId;
+                var collapseId = "collapse" + item.SafetyItemId;
+                var accordionLinkId = "accordionLink" + item.SafetyItemId;
+                var commentId = "comment" + item.SafetyItemId;
+                var descriptionContentId = "descriptionContent" + item.SafetyItemId;
+                var descriptionContentValueDivId = "descriptionContentValueDiv" + item.SafetyItemId;
+                var commentValueDivId = "commentValueDiv" + item.SafetyItemId;
+
+                var textRequiredHiddenId = "textRequiredHidden" + item.SafetyItemId;
+                var attachmentRequiredHiddenId = "attachmentRequiredHidden" + item.SafetyItemId;
+                var saveButtonId = "saveButton" + item.SafetyItemId;
+                var labHazardCheckListButtonId = "labHazardCheckListButton" + item.SafetyItemId;
+                var bkackgoundColor = "accordion-bkackgound-light";
+                var statusImage = "/Resources/Images/Stylish_ok.png";
+                var attachFileCaption = "Upload attached file";
+                var safetyCommentLogButtonId = "safetyCommentLogButton" + item.SafetyItemId;
+                var safetyContentLogButtonId = "safetyContentLogButtonId" + item.SafetyItemId;
+
+                if (item.ItemStatus != 3 && item.ItemStatus != 1)
+                {
+                    disableSubmit = "";
+                }
+
+                <div id="@descriptionContentValueDivId" class="hidden">@MvcHtmlString.Create(item.LastContent.Replace("\r\n", "</br>"))</div>
+                <div id="@commentValueDivId" class="hidden"> @MvcHtmlString.Create(item.LastComment.Replace("\r\n", "</br>"))</div>
+
+                <script>
+                   safetyItemSubmitObject = {
+
+                        attachmentRequiredHiddenId : "@attachmentRequiredHiddenId",
+                        attachedFileInputId : "@attachmentRequiredHiddenId",
+                        textRequiredHiddenId : "@textRequiredHiddenId",
+                        descriptionContentId : "@descriptionContentId",
+                        descriptionContentValueDivId : '@descriptionContentValueDivId',
+                        descriptionContentIsReadonly : false,
+                        safetyItemName: "@item.SafetyItemName",
+                        selectedFileNameContainerId : "@selectedFileNameContainerId",
+                        commentId: '@commentId',
+                        commentValueDivId: '@commentValueDivId',
+                    }
+
+                safetyItemSubmitObjectList.push(safetyItemSubmitObject);
+
+
+                </script>
+
+                if (item.SafetyItemId == 10)
+                {
+                    attachFileCaption = "Upload Lab Hazzard Identification Check List";
+                }
+                else
+                {
+                    attachFileCaption = "Upload attached file";
+                }
+
+                if (firstTime == true)
+                {
+                    firstAccordionLinkId = accordionLinkId;
+                    firstTime = false;
+                }
+
+                if (item.ItemStatus == 0 || item.ItemStatus == 1 || item.ItemStatus == 3)
+                {
+                    bkackgoundColor = "accordion-bkackgound-dark";
+                }
+                else
+                if (item.ItemStatus == 2)
+
+                {
+                    bkackgoundColor = "accordion-bkackgound-light";
+                }
+                else
+                {
+                    bkackgoundColor = "null-color-accordion-bkackgound";
+                }
+
+                if (item.ItemStatus == 3)
+                {
+                    statusImage = "/Resources/Images/Stylish_ok.png";
+                }
+                else
+                {
+                    statusImage = "/Resources/Images/Stylish_not_ok.png";
+                }
+
+                <div class="panel panel-default">
+                    <div class="panel-heading border-round @bkackgoundColor" role="tab" id="@headingId"
+                         data-toggle="collapse" data-parent="#accordion" data-target="#@collapseId">
+
+                        <div class="row">
+                            <div class="col-xs-11">
+                                <h4 class="panel-title">
+                                    <a id="@accordionLinkId" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#@collapseId" aria-expanded="false" aria-controls="@collapseId">
+                                        @item.SafetyItemName
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="col-xs-1">
+                                <img src="@statusImage" width="32" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@collapseId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@headingId">
+                        <div class="panel-body">
+                            <div class="col-xs-12 text-justify text-left">
+
+                                @item.Instruction
+
+
+                                <hr />
+                            </div>
+                            <div class="row text-left">
+                                <div class="form-group">
+
+
+                                    @Html.Label(@Model["Content"], htmlAttributes: new { @class = "control-label" })
+
+                                    @if (item.TextRequired)
+                                    {
+                                        <i class="text-danger fa-2x"> *</i>
+                                    }
+
+                                    <div class="col-xs-12">
+                                        @if (item.ItemStatus == 1 || item.ItemStatus == 3)
+                                        {
+                                            <script>
+
+                                                safetyItemSubmitObjectList[@indexCounter].descriptionContentIsReadonly = true;
+                                            </script>
+
+                                            @*@Html.TextAreaFor(model => item.LastContent, new { @class = "form-control description-content", @readonly = "readonly", @id = @descriptionContentId })*@
+
+                                            <div class="form-control description-content" id="@descriptionContentId"></div>
+
+                                        }
+                                        else
+                                        {
+
+                                            <script>
+
+                                                safetyItemSubmitObjectList[@indexCounter].descriptionContentIsReadonly = false;
+                                            </script>
+
+                                            @*@Html.TextAreaFor(model => item.LastContent, new { @class = "form-control description-content", @id = @descriptionContentId })*@
+
+                                            <div class="form-control description-content" id="@descriptionContentId"></div>
+
+                                            <input type="hidden" id="@textRequiredHiddenId" value='@item.TextRequired.ToString().ToLower()' />
+
+                                        }
+
+                                    </div>
+                                </div>
+
+                                @if (string.IsNullOrWhiteSpace(item.LastComment) == false)
+                                {
+                                    <hr />
+                                    <div class="form-group">
+
+                                        @Html.Label(@Model["Safety Admin Comment"], htmlAttributes: new { @class = "control-label col-xs-12" })
+
+                                        <div class="col-xs-12">
+                                            <div class="form-control description-content" id="@commentId"></div>
+
+                                        </div>
+
+                                    </div>
+                                }
+                                @if (item.ItemStatus == 0 || item.ItemStatus == null || item.ItemStatus == 2)
+                                {
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <br />
+                                            <button type="button" id="@saveButtonId" class="btn btn-success">Save</button>
+                                            @* <button type="button" id="@labHazardCheckListButtonId" class="col-xs-5 btn btn-success">Lab Hazard Check List</button>*@
+                                            <hr />
+                                        </div>
+                                        <script>
+
+                                            $('#@saveButtonId').click(function () {
+
+                                                var attachedFile = null;
+
+                                                if (document.getElementById('@attachedFileInputId') != null) {
+                                                    attachedFile = document.getElementById('@attachedFileInputId').files;
+                                                }
+
+                                                if (
+                                                    $("#@attachmentRequiredHiddenId").val() == "true" &&
+                                                    $("#@selectedFileNameContainerId").data("attachedurl") == "" &&
+                                                    (attachedFile == null || attachedFile.length == 0)) {
+                                                    alert("Please Attach " + "@item.SafetyItemName");
+                                                    return;
+                                                }
+
+                                                if (
+                                                    $('#@textRequiredHiddenId').val() == 'true' &&
+                                                    $('#@descriptionContentId').summernote('code').length == 0) {
+                                                    alert("Please Enter the Content of the " + "@item.SafetyItemName");
+                                                    return;
+                                                }
+
+                                            var safetyItemValueObject = {
+                                                attachedFileInputId: '@attachedFileInputId',
+                                                oldAttachedFileUrl: '@item.AttachedFileUrl',
+                                                attachedFileUrlHiddenId: '@attachedFileUrlHiddenId',
+                                                safetyItemId: @item.SafetyItemId,
+                                                descriptionContent: $('#@descriptionContentId').summernote('code'),
+                                                itemStatus: '@item.ItemStatus',
+                                                headingId: '@headingId',
+                                                selectedFileNameContainerId : '@selectedFileNameContainerId',
+                                            };
+
+                                            saveSafetyItem(safetyItemValueObject);
+
+                                        });
+
+                                        </script>
+                                    </div>
+                                }
+                                <div class="form-group">
+
+                                    <input id="@attachedFileInputId" name="file" type="file" class="form-control hidden" />
+
+                                    @if (item.ItemStatus == 0 || item.ItemStatus == null || item.ItemStatus == 2)
+                                    {
+                                        <div class="col-xs-12">
+                                            <button type="button" class="btn btn-primary" id="@attachedFileInputTrigerId"
+                                                    onclick="$('#@attachedFileInputId').click()">
+                                                @attachFileCaption
+                                            </button>
+                                        </div>
+                                        <input type="hidden" id="@attachmentRequiredHiddenId" value="@item.AttachmentRequired.ToString().ToLower()" />
+                                    }
+
+                                    @if (string.IsNullOrWhiteSpace(item.AttachedFileUrl) == false)
+                                    {
+                                        <a href="@HttpUtility.HtmlDecode( @item.AttachedFileUrl)" id="@selectedFileNameContainerId"
+                                           data-attachedurl="@item.AttachedFileUrl" class="display-block" target="_blank">
+                                            @{
+                                                var splitItem = item.AttachedFileUrl.Split(new string[] { "?CT" }, StringSplitOptions.RemoveEmptyEntries)[0];
+                                                var slashSplit = splitItem.Split('/');
+                                            }
+                                            <span class="col-xs-12 display-block">Attached File: @HttpUtility.HtmlDecode(@slashSplit[slashSplit.Length - 1])</span>
+                                        </a>
+                                        <hr />
+                                    }
+                                    else
+                                    {
+                                        <div class="col-xs-12">
+                                            <a href="#" id="@selectedFileNameContainerId" class="display-block" data-attachedurl="@item.AttachedFileUrl"> </a>
+                                        </div>
+                                    }
+                                    <script>
+                                        //Unfinished ///////////////////////////////////////////////////////////
+                                        $('#@attachedFileInputId').on('change', function (e) {
+
+
+                                            var safetyItemValueObject = {
+                                                attachedFileInputId: '@attachedFileInputId',
+                                                oldAttachedFileUrl: '@item.AttachedFileUrl',
+                                                attachedFileUrlHiddenId: '@attachedFileUrlHiddenId',
+                                                safetyItemId: @item.SafetyItemId,
+                                                descriptionContent: $('#@descriptionContentId').summernote('code'),
+                                                itemStatus: '@item.ItemStatus',
+                                                headingId: '@headingId',
+                                                selectedFileNameContainerId : '@selectedFileNameContainerId',
+                                            };
+
+                                            saveSafetyItem(safetyItemValueObject);
+
+                                        });
+
+                                    </script>
+                                    @Html.HiddenFor(model => item.AttachedFileUrl, htmlAttributes: new { @id = @attachedFileUrlHiddenId })
+                                    @Html.ValidationMessage(@Model["AttachedFileUrl"], "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <button type="button" id="@safetyCommentLogButtonId"
+                                                onclick="showSafetyLog('@item.SafetyItemId', '@item.SafetyItemName', true)"
+                                                class="btn btn-group btn-warning">
+                                            Safety Admin Comment History
+                                        </button>
+                                        <button type="button" id="@safetyContentLogButtonId"
+                                                onclick="showSafetyLog('@item.SafetyItemId', '@item.SafetyItemName', false)"
+                                                class="btn btn-group btn-warning">
+                                            Team Changes History
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                indexCounter++;
+
+            }
+        </div>
+        <hr />
+        @** Submit process *@
+        @if (Request.IsAuthenticated && Model.CurrentUserRoles != null &&
+            (Model.CurrentUserRoles.Contains("Leader") || Model.CurrentUserRoles.Contains("Advisor") || Model.CurrentUserRoles.Contains("CoAdvisor")))
+        {
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button type="button" id="submitButton" class="btn btn-lg btn-success @disableSubmit">Submit</button>
+                </div>
+                @if (@disableSubmit == "")
+                {
+                    <script>
+
+                    $('#submitButton').click(function () {
+                        var attachErrorMessage = "";
+                        var textRequiredMessage = "";
+
+                        $("#errorMessagesContainer").html("");
+
+                        for (i = 0; i < safetyItemSubmitObjectList.length; i++) {
+                            var attachedFile = null;
+
+
+                            if (document.getElementById(safetyItemSubmitObjectList[i].attachedFileInputId) != null) {
+                                attachedFile = document.getElementById(safetyItemSubmitObjectList[i].attachedFileInputId).files;
+                            }
+
+                            if (
+                                $("#" + safetyItemSubmitObjectList[i].attachmentRequiredHiddenId).val() == "true" &&
+                                $("#" + safetyItemSubmitObjectList[i].selectedFileNameContainerId).data("attachedurl") == "" &&
+                                (attachedFile == null || attachedFile.length == 0))
+                            {
+                                attachErrorMessage += "Please Attach " + safetyItemSubmitObjectList[i].safetyItemName + "<br/>";
+                            }
+
+                            if (
+                                $('#' + safetyItemSubmitObjectList[i].textRequiredHiddenId).val() == 'true' &&
+                                $('#' + safetyItemSubmitObjectList[i].descriptionContentId).summernote('code').length == 0) {
+
+                                textRequiredMessage += "Please Enter the Content of the " + safetyItemSubmitObjectList[i].safetyItemName + "<br/>";
+                            }
+                        }
+
+                        if (attachErrorMessage != "" || textRequiredMessage != "") {
+
+                            $("#errorMessagesContainer").html(attachErrorMessage + textRequiredMessage);
+                            location.href = "#topOfESPErrorMessage";
+                            return;
+                        }
+
+                        HoldOn.open({
+                            theme: 'sk-cube-grid',
+                            message: "<h4>@Model["Please wait..."]</h4>"
+                        });
+
+                        $.ajax({
+                             url: "/student/checkSaved",
+                            type: 'POST',
+                            data: { teamId: '@teamId'},
+
+                        }).done(function (result){
+
+                            if (result.saved == true) {
+
+                                $.ajax({
+                                    url: "/student/submit",
+                                    type: 'POST',
+                                    data: { teamId: '@teamId' },
+
+                                }).done(function (result) {
+                                    if (result.success == true) {
+
+                                        alert("You have successfuly submitted an experimental safety plan");
+                                        location.href = "/advisor/gesp/@teamId";
+
+                                    }
+
+                                });
+                            }
+                            else {
+                                alert("Please save the items...");
+                                HoldOn.close();
+                            }
+
+                        });
+
+
+
+                    });
+
+                    </script>
+                }
+            </div>
+
+        }
+        @** Submit process *@
+
+    </div>
+    <div class="col-xs-1"></div>
+
+</div>
+
+<div class="modal fade" id="referenceFileModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+
+                    <h4>@Model["Download reference files"]</h4>
+
+                    @if (Model.ReferenceFiles != null)
+                    {
+                        foreach (var item in Model.ReferenceFiles.ReferenceList)
+                        {
+                            <a href="@item.ReferenceFileUrl" target="_blank">@item.Title</a>
+                            <hr />
+                        }
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="~/Resources/CSS/modal-fixed-full-screen.css" rel="stylesheet" />
+<div class="modal-fixed-full-screen">
+    <div class="modal fade" id="safetyLogModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="text-center">@Model["Safety History"]</h5>
+                    <div class="row text-center">
+                        <h4 class="col-xs-12 text-left" id="safetyItemNameContainer"></h4>
+                        <div class="col-xs-12 text-left" id="safetyLogContainer"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function showSafetyLog(safetyItemId, safetyItemName, type) {
+
+        HoldOn.open({
+            theme: 'sk-cube-grid',
+            message: "<h4>@Model["Please wait..."]</h4>"
+        });
+
+        $.ajax({
+            url: "/student/scl", //you can get also action attribute from form using form.attr('action')
+            type: 'POST',
+            data: { safetyItemId: safetyItemId, teamId: @teamId, type: type },
+            dataType: "html",
+        }).done(
+            function (result) {
+                debugger
+                $("#safetyLogContainer").html(result);
+                $("#safetyItemNameContainer").html(safetyItemName);
+
+                $("#safetyLogModal").modal();
+
+                HoldOn.close();
+            });
+    }
+
+</script>
+
+<script type="text/javascript">
+    function saveSafetyItem(safetyItemValueObject) {
+
+        var formData = new FormData();
+
+        var AttachedFile_file = document.getElementById(safetyItemValueObject.attachedFileInputId).files[0];
+
+        formData.append("oldAttachedFileUrl", safetyItemValueObject.oldAttachedFileUrl);
+        formData.append("safetyItemId", safetyItemValueObject.safetyItemId);
+        formData.append("uploadedAttachedFile", AttachedFile_file);
+        formData.append("descriptionContent", safetyItemValueObject.descriptionContent);
+        formData.append("itemStatus", safetyItemValueObject.itemStatus);
+
+        formData.append("teamId", @teamId);
+
+        HoldOn.open({
+            theme: 'sk-cube-grid',
+            message: "<h4>@Model["Please wait..."]</h4>"
+        });
+
+        $.ajax({
+            url: "/student/ssi", //you can get also action attribute from form using form.attr('action')
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+        }).done(
+            function (result)
+            {
+
+                if (result.success == true) {
+
+                    $("#" + safetyItemValueObject.selectedFileNameContainerId).data("attachedurl", result.attachedFileUrl);
+
+                    $("#" + safetyItemValueObject.attachedFileUrlHiddenId).val(result.attachedFileUrl);
+
+                    $("#" + safetyItemValueObject.headingId).addClass("accordion-bkackgound-dark").removeClass("accordion-bkackgound-light").removeClass("null-color-accordion-bkackgound");
+
+                    if (AttachedFile_file != null && AttachedFile_file != undefined) {
+                        $("#" + safetyItemValueObject.selectedFileNameContainerId).text("Selected file :" + AttachedFile_file.name);
+                        $("#" + safetyItemValueObject.selectedFileNameContainerId).attr("href", "#");
+                    }
+
+                    alert("Operation successful");
+                }
+                HoldOn.close();
+            });
+
+    }
+</script>
+
+<script>
+    $("#referencesButton").click(
+        function () {
+           $("#referenceFileModal").modal();
+        }
+    );
+
+    $(document).ready(function () {
+        console.log("document loaded");
+    });
+
+    $(window).on("load", function () {
+        console.log("window loaded @firstAccordionLinkId");
+
+        for (i = 0; i < safetyItemSubmitObjectList.length; i++)
+        {
+            var contentElement = $("#" + safetyItemSubmitObjectList[i].descriptionContentId);
+
+            contentElement.summernote({
+                height: 300, minHeight: null, maxHeight: null, focus: false,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']], ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'hr', 'uploadfile']],
+                    ['view', ['fullscreen', 'codeview']],
+                    ['help', ['help']]
+                ],
+            });
+
+            contentElement.summernote('code', $('#' + safetyItemSubmitObjectList[i].descriptionContentValueDivId).html());
+
+            if (safetyItemSubmitObjectList[i].descriptionContentIsReadonly == true) {
+                contentElement.summernote('disable');
+            }
+
+            var commentElement = $("#" + safetyItemSubmitObjectList[i].commentId);
+
+            commentElement.summernote({
+                height: 300, minHeight: null, maxHeight: null, focus: false,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']], ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'hr', 'uploadfile']],
+                    ['view', ['fullscreen', 'codeview']],
+                    ['help', ['help']]
+                ],
+            });
+
+            commentElement.summernote('code', $('#' + safetyItemSubmitObjectList[i].commentValueDivId).html());
+            commentElement.summernote('disable');
+
+        }
+    });
+</script>

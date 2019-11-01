@@ -1,0 +1,16 @@
+﻿
+@model Model.ViewModels.Test.VmTeamTestCollection
+@if (Model.TeamTestList != null && Model.TeamTestList.Count() > 0)
+{
+    <table>
+        @foreach (var testItem in Model.TeamTestList.First().TestList)
+        {
+            <tr>
+
+                <td><strong>@testItem.Name: </strong> </td>
+                <td> @testItem.Score</td>
+
+            </tr>
+        }
+    </table>
+}

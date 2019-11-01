@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- base href="https://eproc.setadiran.ir/eproc/" -->
+<title>سامانه تدارکات الکترونیکی دولت</title>
+
+
+
+<link rel="stylesheet" type="text/css" href="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/default.css">
+<link rel="stylesheet" type="text/css" href="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/displaytag.css">
+<link rel="stylesheet" type="text/css" href="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery.css">
+
+<link rel="stylesheet" type="text/css" href="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/type.css">
+
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery-1.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_002.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/json.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_007.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_006.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_004.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_003.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_008.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_010.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_005.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/inputmask_002.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/inputmask.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/inputmask_003.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/jquery_009.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/type.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/general.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function ()
+                      {
+                          mask();
+                      });
+</script>
+
+<style type="text/css">
+    .gap {
+        border-bottom: 1px none;
+    }
+</style>
+
+
+
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/engine.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/util.js"></script>
+<script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/insuranceCompanyDwr.txt"></script>
+
+
+<style type="text/css">
+    .grayBox {
+        background-color: #C0C0C0;
+    }
+
+    .greenDarkBox {
+        background-color: #8FBC8F;
+    }
+
+    .greenBox {
+        background-color: #66CDAA;
+    }
+
+    .whiteBox {
+        background-color: white;
+        width: 155px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .border {
+        border: solid 1px black;
+    }
+
+    .priceClass {
+        direction: rtl;
+        text-align: right;
+        width: 125px;
+
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+
+</style>
+<script type="text/javascript">
+var itemInsurancesRow = 1;
+var inquiryInsurancesRow = 1;
+var inquiryInsuranceListNew = [];
+var inquiryInsuranceListUpdate = [];
+var inquiryInsuranceListDelete = [];
+
+var itemInquiryInsuranceListNew = [];
+var itemInquiryInsuranceListUpdate = [];
+var itemInquiryInsuranceListDelete = [];
+
+    function showNeedDetails() {
+        if (isDirtyPage) {
+            addClientError(null, 'اطلاعات تغيير يافته است ابتدا تغييرات را ثبت نماييد');
+            showClientError();
+        } else {
+            window.location = 'purchaseNeedView.do?method=showNeedDetailInfo' +
+                    '&requestId=288213';
+        }
+    }
+    function showItemPriceCondition() {
+
+        if (isDirtyPage) {
+            addClientError(null, 'اطلاعات تغيير يافته است ابتدا تغييرات را ثبت نماييد');
+            showClientError();
+            return false;
+        }
+
+        window.location = 'supplierProfile.do?method=clearGoods' +
+                '&needId=277286'+
+                '&requestId=288213';
+        return false;
+    }
+    function itemEditRow(indexNo){
+
+        hideClientError();
+        if (gE('errorMessages'))
+            gE('errorMessages').style.display = 'none';
+
+        if (gE('successMsg'))
+            gE('successMsg').style.display = 'none';
+        var frm = document.forms[0];
+
+
+
+        if (isDirtyPage) {
+            addClientError(null,'کاربر گرامي اطلاعات وارد شده کالاي جاري ذخيره نشده است. ابتدا اطلاعات را ثبت نماييد.');
+            return showClientError();
+        }
+
+
+        frm.elements['selectedItemIndex'].value = indexNo;
+
+        var url = "/eproc" + '/supplierNeedResponse-editSelectedItem.do';
+
+        frm.action = url;
+        frm.submit();
+//        return true;
+    }
+function serviceEditRow(indexNo){
+    hideClientError();
+    if (gE('errorMessages'))
+        gE('errorMessages').style.display = 'none';
+
+    if (gE('successMsg'))
+        gE('successMsg').style.display = 'none';
+    var frm = document.forms[0];
+
+    if (isDirtyPage) {
+        addClientError(null,'کاربر گرامي اطلاعات وارد شده خدمت جاري ذخيره نشده است. ابتدا اطلاعات را ثبت نماييد.');
+        return showClientError();
+    }
+
+
+    frm.elements['selectedServiceIndex'].value = indexNo;
+
+    var url = "/eproc" + '/supplierNeedResponse-editSelectedItem.do';
+
+    frm.action = url;
+    frm.submit();
+//        return true;
+}
+var insuranceIndex = 0;
+function changeInsuranceName(method, elm, rowNo)
+{
+
+    dataChanged();
+
+    insuranceIndex = rowNo;
+
+    if (method == 'bindInsuranceItemType') {
+        if (gE('table_itemInsurance_list').rows[rowNo + 2].children[2].children[0].value != 1)
+            gE('table_itemInsurance_list').rows[rowNo + 2].children[2].children[0].value = 2;
+
+        DWRUtil.removeAllOptions(document.forms[0].elements['itemInsurances[' + insuranceIndex + '].insuranceCompany.insuranceCompanyId']);
+        insuranceCompanyDwr.loadInsuranceCompanies(elm.value, loadItemData);
+    }
+    else if (method == 'bindInsuranceType') {
+        if (gE('table_inquiryInsurance_list').rows[rowNo + 2].children[2].children[0].value != 1)
+            gE('table_inquiryInsurance_list').rows[rowNo + 2].children[2].children[0].value = 2;
+        DWRUtil.removeAllOptions(document.forms[0].elements['inquiryInsurances[' + insuranceIndex + '].insuranceCompany.insuranceCompanyId']);
+        insuranceCompanyDwr.loadInsuranceCompanies(elm.value, loadData);
+    }
+
+
+}
+
+function loadItemData(data)
+{
+
+    DWRUtil.removeAllOptions(document.forms[0].elements['itemInsurances[' + insuranceIndex + '].insuranceCompany.insuranceCompanyId']);
+    DWRUtil.addOptions(document.forms[0].elements['itemInsurances[' + insuranceIndex + '].insuranceCompany.insuranceCompanyId'], data, 'id', 'typeName');
+
+}
+function loadData(data)
+{
+
+    DWRUtil.removeAllOptions(document.forms[0].elements['inquiryInsurances[' + insuranceIndex + '].insuranceCompany.insuranceCompanyId']);
+    DWRUtil.addOptions(document.forms[0].elements['inquiryInsurances[' + insuranceIndex + '].insuranceCompany.insuranceCompanyId'], data, 'id', 'typeName');
+
+}
+
+function changeStatusOfItemInquiryInsurance(rows){
+    dataChanged();
+    var rowIndex = rows.parentNode.parentNode.rowIndex;
+    if (gE('table_itemInsurance_list').rows[rowIndex].children[2].children[0].value != 1)
+        gE('table_itemInsurance_list').rows[rowIndex].children[2].children[0].value = 2;
+}
+function cama(e, ctrl) {
+
+    var key = getEventKeyCode(e);
+    if (key != 9) {
+        moneyCommaSep(ctrl)
+    }
+
+}
+function moneyCommaSep(ctrl)
+{
+    var separator = ",";
+    var int = ctrl.value.replace(new RegExp(separator, "g"), "");
+    var regexp = new RegExp("\\B(\\d{3})(" + separator + "|$)");
+    do {
+        int = int.replace(regexp, separator + "$1");
+    }
+    while (int.search(regexp) >= 0)
+    ctrl.value = int;
+}
+function removeItemInsuranceRow(rows)
+{
+    isDirtyPage = true;
+
+    var rowIndex = rows.parentNode.parentNode.rowIndex;
+
+    var tbl = gE('table_itemInsurance_list');
+
+    for (j = 0; j < tbl.rows[rowIndex].children.length; j++) {
+        if (tbl.rows[rowIndex].children[0].children[0].value != '' && tbl.rows[rowIndex].children[0].children[0].value != 0)
+            tbl.rows[rowIndex].children[2].children[0].value = '3';
+        else
+            tbl.rows[rowIndex].children[2].children[0].value = '-1';
+
+        tbl.rows[rowIndex].children[j].style.display = 'none';
+    }
+    itemInsurancesRow --;
+    calcTotalPrice();
+}
+function calcTotalPrice()
+{
+
+    var frm = document.forms[0];
+    var tblService = gE('serviceList');
+    var curIndex = document.forms[0].selectedItemIndex.value;
+    var curServiceIndex = document.forms[0].selectedServiceIndex.value;
+
+
+    frm.elements['inquiry.insurancePrice'].value = 0;
+    for (i = 0; i < inquiryInsurancesRow; i++) {
+        var tbl = gE('table_inquiryInsurance_list');
+
+        if (frm.elements['inquiryInsurancePrice[' + i + ']']  && tbl.rows[i+2] && tbl.rows[i+2].children[2].children[0].value != '3' && tbl.rows[i+2].children[2].children[0].value != '-1') {
+            if ((frm.elements['inquiryInsurancePrice[' + i + ']'].value != '' && !isNumeric(frm.elements['inquiryInsurancePrice[' + i + ']'].value.replace(/,/g, ''))) || frm.elements['inquiryInsurancePrice[' + i + ']'].value == '') {
+
+                frm.elements['inquiryInsurancePrice[' + i + ']'].value = 0;
+            }
+            else{
+
+                frm.elements['inquiry.insurancePrice'].value = parseFloat(frm.elements['inquiry.insurancePrice'].value.replace(/,/g, '')) + parseFloat(frm.elements['inquiryInsurancePrice[' + i + ']'].value.replace(/,/g, ''));
+            }
+
+        }
+    }
+    if(frm.elements['inquiry.insurancePrice'].value != 0)
+        moneyCommaSep(frm.elements['inquiry.insurancePrice']);
+
+    var differentPrice = 0;
+    var differentServicePrice = 0;
+    var differentInsurance = 0;
+
+    
+
+    if (frm.elements['inquiryServiceItems[' + curServiceIndex + '].price'].value != '' && !isNumeric(frm.elements['inquiryServiceItems[' + curServiceIndex + '].price'].value.replace(/,/g, ''))) {
+        frm.elements['inquiryServiceItems[' + curServiceIndex + '].price'].value = 0;
+    }
+    if (frm.elements['inquiryServiceItems[' + curServiceIndex + '].otherCosts'].value != '' && !isNumeric(frm.elements['inquiryServiceItems[' + curServiceIndex + '].otherCosts'].value.replace(/,/g, ''))) {
+        frm.elements['inquiryServiceItems[' + curServiceIndex + '].otherCosts'].value = 0;
+    }
+
+    differentServicePrice = parseFloat(getPriceFormat(frm.elements['inquiryServiceItems[' + curServiceIndex + '].otherCosts'])) - parseFloat(getPriceFormat(frm.elements['hidden_serviceOtherCosts']));
+
+    var basePrice = parseFloat(getPriceFormat(frm.elements['inquiryServiceItems[' + curServiceIndex + '].price'])) - parseFloat(getPriceFormat(frm.elements['hidden_basePrice']));
+
+    basePrice = basePrice * parseFloat(gE('serviceAmount_' + curServiceIndex ).innerHTML);
+    differentServicePrice += basePrice;
+
+    frm.elements['inquiryServiceItems[' + curServiceIndex + '].totalPrice'].value = parseFloat(getPriceFormat(frm.elements['inquiryServiceItems[' + curServiceIndex + '].totalPrice'])) + differentServicePrice;
+
+    moneyCommaSep(frm.elements['inquiryServiceItems[' + curServiceIndex + '].totalPrice']);
+
+    frm.elements['hidden_serviceOtherCosts'].value = frm.elements['inquiryServiceItems[' + curServiceIndex + '].otherCosts'].value;
+    frm.elements['hidden_basePrice'].value = frm.elements['inquiryServiceItems[' + curServiceIndex + '].price'].value;
+    
+    differentPrice += parseFloat(getPriceFormat(frm.elements['inquiry.insurancePrice'])) - parseFloat(getPriceFormat(frm.elements['hidden_itemInquiryInsurancePrice']));
+
+    frm.elements['inquiry.totalPrice'].value = parseFloat(getPriceFormat(frm.elements['inquiry.totalPrice'])) + differentPrice + differentServicePrice;
+    moneyCommaSep(frm.elements['inquiry.totalPrice']);
+
+    differentInsurance += parseFloat(getPriceFormat(frm.elements['inquiry.insurancePrice'])) - parseFloat(getPriceFormat(frm.elements['hidden_itemInquiryInsurancePrice']));
+    frm.elements['inquiryTotalInsurance'].value = parseFloat(getPriceFormat(frm.elements['inquiryTotalInsurance'])) + differentInsurance;
+    moneyCommaSep(frm.elements['inquiryTotalInsurance']);
+
+
+    frm.elements['hidden_itemInquiryInsurancePrice'].value = frm.elements['inquiry.insurancePrice'].value;
+
+}
+function getPriceFormat(elm)
+{
+    var price = elm.value.replace(/,/g, '')
+    return  (price == "") ? 0 : price;
+}
+var itemInsuranceRowCounter = 1;
+function addItemInsuranceRow()
+{
+    jQuery.ajaxSetup({async: false});
+    jQuery.ajax({
+        type : "post",
+        url : "supplierNeedResponse-addInsurances.do",
+        data : "itemRow=true",
+        success: function (response)
+        {
+            if (response == "success") {
+                return true;
+            }
+        },
+        error: function()
+        {
+
+        }
+    });
+    var newTR = gE('table_itemInsurance_list').insertRow(itemInsuranceRowCounter + 2);
+    var insRow = gE('table_itemInsurance_list').rows[1];
+
+    newTR.setAttribute('id', 'row_itemInsurance' + itemInsuranceRowCounter + 2);
+    var newTD1 = newTR.insertCell(0);
+    newTD1.style.width = "0px";
+    newTD1.style.display = 'none';
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[0], 'itemInsurances[' + itemInsuranceRowCounter + '].inquiryInsuranceId', '', '');
+    newTD1.children[0].value = "0";
+
+    newTD1 = newTR.insertCell(1);
+    newTD1.style.width = "0px";
+    newTD1.style.display = 'none';
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[1], 'itemInsurances[' + itemInsuranceRowCounter + '].version', '', '');
+    newTD1.children[0].value = "0";
+
+    newTD1 = newTR.insertCell(2);
+    newTD1.style.width = "0px";
+    newTD1.style.display = 'none';
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = '<input type="hidden" name="status" value="1"> ';
+
+    newTD1 = newTR.insertCell(3);
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[3], 'itemInsurances[' + itemInsuranceRowCounter + '].insuranceCompany.name', '', '').replace("-1", "" + itemInsuranceRowCounter);
+
+    newTD1 = newTR.insertCell(4);
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[4], 'itemInsurances[' + itemInsuranceRowCounter + '].insuranceCompany.insuranceCompanyId', '', '');
+
+    newTD1 = newTR.insertCell(5);
+    newTD1.style.width = "100px";
+    newTD1.setAttribute('align', 'right');
+    newTD1.align="right";
+    newTD1.innerHTML = createCloneElement(insRow.cells[5], 'itemInsurancePrice[' + itemInsuranceRowCounter + ']', '', '');
+    newTD1.children[0].value = "0";
+
+    newTD1 = newTR.insertCell(6);
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[6], itemInsuranceRowCounter, '', '');
+    newTD1.children[0].setAttribute("id", "itemInsuranceRemoveBtn" + itemInsuranceRowCounter);
+
+    itemInsuranceRowCounter ++;
+    itemInsurancesRow ++;
+}
+
+var inquiryInsuranceRowCounter = 1;
+function addInquiryInsuranceRow()
+{
+    jQuery.ajaxSetup({async: false});
+    jQuery.ajax({
+        type : "post",
+        url : "supplierNeedResponse-addInsurances.do",
+        data : "itemRow=false",
+        success: function (response)
+        {
+            if (response == "success") {
+                return true;
+            }
+        },
+        error: function()
+        {
+
+        }
+    });
+    var newTR = gE('table_inquiryInsurance_list').insertRow(inquiryInsuranceRowCounter + 2);
+    var insRow = gE('table_inquiryInsurance_list').rows[1];
+
+    newTR.setAttribute('id', 'row_inquiryInsurance' + inquiryInsuranceRowCounter + 2);
+    var newTD1 = newTR.insertCell(0);
+    newTD1.style.width = "0px";
+    newTD1.style.display = 'none';
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[0], 'inquiryInsurances[' + inquiryInsuranceRowCounter + '].inquiryInsuranceId', '', '');
+    newTD1.children[0].value = "0";
+
+    newTD1 = newTR.insertCell(1);
+    newTD1.style.width = "0px";
+    newTD1.style.display = 'none';
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[1], 'inquiryInsurances[' + inquiryInsuranceRowCounter + '].version', '', '');
+    newTD1.children[0].value = "0";
+
+    newTD1 = newTR.insertCell(2);
+    newTD1.style.width = "0px";
+    newTD1.style.display = 'none';
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = '<input type="hidden" name="status" value="1"> ';
+
+    newTD1 = newTR.insertCell(3);
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[3], 'inquiryInsurances[' + inquiryInsuranceRowCounter + '].insuranceCompany.name', '', '').replace("-1", "" + inquiryInsuranceRowCounter);
+
+    newTD1 = newTR.insertCell(4);
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[4], 'inquiryInsurances[' + inquiryInsuranceRowCounter + '].insuranceCompany.insuranceCompanyId', '', '');
+
+    newTD1 = newTR.insertCell(5);
+    newTD1.style.width = "100px";
+    newTD1.setAttribute('align', 'right');
+    newTD1.align="right";
+    newTD1.innerHTML = createCloneElement(insRow.cells[5], 'inquiryInsurancePrice[' + inquiryInsuranceRowCounter + ']', '', '');
+    newTD1.children[0].value = "0";
+
+    newTD1 = newTR.insertCell(6);
+    newTD1.setAttribute('align', 'center');
+    newTD1.align="center";
+    newTD1.innerHTML = createCloneElement(insRow.cells[6], inquiryInsuranceRowCounter, '', '');
+    newTD1.children[0].setAttribute("id", "inquiryInsuranceRemoveBtn" + inquiryInsuranceRowCounter);
+
+
+    inquiryInsuranceRowCounter ++;
+    inquiryInsurancesRow ++;
+}
+function createCloneElement(elm, name1, name2, id2)
+{
+    var htmlText = "";
+
+    if (elm.children.length > 0)
+        htmlText = elm.innerHTML.replace(elm.children[0].name, name1).replace(elm.children[0].name, name1).replace(elm.children[0].name, name1);
+    if (elm.children.length > 1) {
+        htmlText = htmlText.replace(elm.children[1].name, name2).replace(elm.children[1].name, name2).replace(elm.children[1].name, name2);
+        htmlText = htmlText.replace(elm.children[1].id, id2).replace(elm.children[1].id, id2).replace(elm.children[1].id, id2);
+    }
+
+    return htmlText;
+}
+var isDirtyPage = false;
+function dataChanged()
+{
+    isDirtyPage = true;
+}
+function addAppendix() {
+    openUniquedWindow('appendixDocument.do?method=checkCaptcha' +
+            '&docId=473508' +
+            '&docNo=22973140001295' +
+            '&docType=397'+
+            '&docState=2'
+            , 'appendixPurchaseNeed', 700, 450);
+}
+function removeInquiryInsuranceRow(rows)
+{
+    isDirtyPage = true;
+
+    var rowIndex = rows.parentNode.parentNode.rowIndex;
+
+    var tbl = gE('table_inquiryInsurance_list');
+
+    for (j = 0; j < tbl.rows[rowIndex].children.length; j++) {
+
+        if (tbl.rows[rowIndex].children[0].children[0].value != '' && tbl.rows[rowIndex].children[0].children[0].value != 0)
+            tbl.rows[rowIndex].children[2].children[0].value = '3';
+        else
+            tbl.rows[rowIndex].children[2].children[0].value = '-1';
+
+        tbl.rows[rowIndex].children[j].style.display = 'none';
+    }
+    inquiryInsurancesRow --;
+    calcTotalPrice();
+}
+function changeStatusOfInquiryInsurance(rows){
+    dataChanged();
+    var rowIndex = rows.parentNode.parentNode.rowIndex;
+
+    if(gE('table_inquiryInsurance_list').rows[rowIndex].children[2].children[0].value != 1)
+        gE('table_inquiryInsurance_list').rows[rowIndex].children[2].children[0].value = 2;
+}
+
+
+
+
+function validateForm(frm, index, serviceIndex)
+{
+    
+
+
+
+    for (i = 0; i < inquiryInsurancesRow; i++) {
+        if (gE('inquiryInsurances[' + i + '].insuranceCompany.name') && gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId')) {
+            if (
+                    (gE('inquiryInsurances[' + i + '].insuranceCompany.name').value == "--") &&
+                            ((gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value != "--" && gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value != '0')) &&
+                            (gE('table_inquiryInsurance_list').rows[i+2] && gE('table_inquiryInsurance_list').rows[i+2].children[2].children[0].value != '3')
+                    )
+                addClientError(gE('inquiryInsurances[' + i + '].insuranceCompany.name'), 'نام بيمه را مشخص نمائيد');
+            if (!isNotError) return showClientError();
+
+            if (
+                    (gE('inquiryInsurances[' + i + '].insuranceCompany.name').value != "--") &&
+                            ((gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value == "--" || gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value == '0')) &&
+                            (gE('table_inquiryInsurance_list').rows[i+2] && gE('table_inquiryInsurance_list').rows[i+2].children[2].children[0].value != '3')
+                    )
+                addClientError(gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId'), 'نوع بيمه را مشخص نمائيد');
+            if (!isNotError) return showClientError();
+
+            if((gE('inquiryInsurances[' + i + '].insuranceCompany.name').value == "--" ||
+                    gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value == "--" || gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value == '0') &&
+                    (gE('table_inquiryInsurance_list').rows[i+2] && gE('table_inquiryInsurance_list').rows[i+2].children[2].children[0].value != '3' && gE('table_inquiryInsurance_list').rows[i+2].children[2].children[0].value != '-1') && (i>0 ||
+                    (i== 0 && gE('inquiryInsurancePrice[' + i + ']').value.replace(/,/g, '') > 0))
+                    ) {
+                addClientError(gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId'), 'کاربر گرامي، لطفا ابتدا شرکت بيمه و نوع بيمه مورد نظر را انتخاب نماييد.');
+            }
+            if (!isNotError) return showClientError();
+        }
+    }
+
+
+
+    isError = false;
+    for (i = 0; i < inquiryInsurancesRow; i++) {
+        for (j = i + 1; j < inquiryInsurancesRow; j++) {
+            if (gE('inquiryInsurances[' + i + '].insuranceCompany.name') &&
+                    gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId') &&
+                    gE('inquiryInsurances[' + j + '].insuranceCompany.name') &&
+                    gE('inquiryInsurances[' + j + '].insuranceCompany.insuranceCompanyId')) {
+                if (
+                        (gE('inquiryInsurances[' + i + '].insuranceCompany.name').value != "--") &&
+                                (gE('inquiryInsurances[' + j + '].insuranceCompany.name').value != "--") &&
+                                (gE('inquiryInsurances[' + i + '].insuranceCompany.name').value == gE('inquiryInsurances[' + j + '].insuranceCompany.name').value) &&
+                                (gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value != "--" && gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value != '0') &&
+                                (gE('inquiryInsurances[' + j + '].insuranceCompany.insuranceCompanyId').value != "--" && gE('inquiryInsurances[' + j + '].insuranceCompany.insuranceCompanyId').value != '0') &&
+                                (gE('inquiryInsurances[' + i + '].insuranceCompany.insuranceCompanyId').value == gE('inquiryInsurances[' + j + '].insuranceCompany.insuranceCompanyId').value) &&
+                                (gE('table_inquiryInsurance_list').rows[i+2] && gE('table_inquiryInsurance_list').rows[i+2].children[2].children[0].value != '3' && gE('table_inquiryInsurance_list').rows[i+2].children[2].children[0].value != '-1' &&
+                                        gE('table_inquiryInsurance_list').rows[j+2] && gE('table_inquiryInsurance_list').rows[j+2].children[2].children[0].value != '3' && gE('table_inquiryInsurance_list').rows[j+2].children[2].children[0].value != '-1')
+                        ) {
+                    addClientError(gE('inquiryInsurances[' + j + '].insuranceCompany.name'), 'نام شرکت بيمه و نوع بيمه تکراري است');
+                    isError = true;
+                    break;
+                }
+            }
+            else {
+                break;
+            }
+        }
+        if (isError)
+            break;
+    }
+
+    if ((frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate']) &&
+            ( (frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'].value == '----/--/--') ||
+                    (frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'].value == '') )) {
+        addClientError(frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate']);
+    }
+
+    if (frm.elements['inquiryServiceItems['+serviceIndex+'].price'] &&
+            (frm.elements['inquiryServiceItems['+serviceIndex+'].price'].value == '' ||
+            unCurrencyMask('inquiryServiceItems['+serviceIndex+'].price') == 0)) {
+        addClientError(frm.elements['inquiryServiceItems['+serviceIndex+'].price']);
+    }
+    if (!isNotError) return showClientError();
+
+    if((frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'].value != '')&&(!isValidDate(frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'].value))){
+        addClientError(frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'], 'تاريخ نامعتبر است');
+    }
+    else {
+        if (convertDate(gE('serviceNecessaryDate_' + serviceIndex).innerHTML) < convertDate(frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'].value)) {
+            addClientError(frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'], 'کاربر گرامی تاریخ تحویل خدمت باید کوچکتر یا مساوی تاریخ نیاز به خدمت باشد.');
+        }
+        if (convertDate(frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'].value) < 13970506) {
+            addClientError(frm.elements['inquiryServiceItems['+serviceIndex+'].deliveryDate'], 'تاريخ تحویل خدمت بايد بزرگتر مساوي تاريخ روز باشد');
+        }
+    }
+
+    if (frm.elements['inquiryServiceItems[' + serviceIndex + '].description'].value != '' && frm.elements['inquiryServiceItems[' + serviceIndex + '].description'].value.length > 250) {
+        addClientError(frm.elements['inquiryServiceItems[' + serviceIndex + '].description'], 'توضیحات نمي تواند بيشتر از 250 کاراکتر باشد');
+    }
+    
+
+    if (gE('inquiry.supplierCondition') && gE('inquiry.supplierCondition').value != '' && gE('inquiry.supplierCondition').value.length > 250) {
+        addClientError(gE('inquiry.supplierCondition'), 'شرايط تامين کننده نمي تواند بيشتر از 250 کاراکتر باشد');
+    }
+
+
+    if (!isNotError) return showClientError();
+    if(frm.elements['allItemsDeliveryDate'] && frm.elements['allItemsDeliveryDate'].value == '') {
+        
+
+        
+
+
+    }
+
+    var res = showClientError();
+    if (res)
+        document.forms[0].elements['inquiry.totalPrice'].disabled = '';
+    return res;
+}
+function unCurrencyMask(id)
+{
+    var frm = document.forms[0];
+    if (frm.elements[id].value != "")
+        return  parseFloat(frm.elements[id].value.replace(/,/g, ''));
+    else
+        return  parseFloat(0);
+}
+function isNumericTextForm(frm)
+{
+    hideClientError();
+    var curIndex = document.forms[0].selectedItemIndex.value;
+    if (frm.elements['inquiryItems[' + curIndex + '].guarantyDuration'].value != '' && !isNumeric(frm.elements['inquiryItems[' + curIndex + '].guarantyDuration'].value)) {
+        addClientError(frm.elements['inquiryItems[' + curIndex + '].guarantyDuration'], 'لطفا عدد وارد کنيد.');
+    }
+
+    return showClientError();
+}
+function makeLists() {
+    var frm = document.forms[0];
+
+    var tbl = gE('table_inquiryInsurance_list')
+
+    for (var z = 2; z < tbl.rows.length; z++) {
+
+        var id = tbl.rows[z].children[0].children[0].value;
+        var version = tbl.rows[z].children[1].children[0].value;
+        var status = tbl.rows[z].children[2].children[0].value;
+        var insuranceCompanyName = tbl.rows[z].children[3].children[0].value;
+        var insuranceCompanyId = tbl.rows[z].children[4].children[0].value;
+        var price = tbl.rows[z].children[5].children[0].value.replace(/,/g, '');
+
+
+        var insuranceCompany = {
+            "id":insuranceCompanyId,
+            "insuranceCompanyId":insuranceCompanyId,
+            "name":insuranceCompanyName
+        };
+
+        var inquiryInsurance = {
+            "id":id,
+            "inquiryInsuranceId":id,
+            "version":version,
+            "price":price,
+            "insuranceCompany":insuranceCompany
+        };
+
+        if(status == 2 && (id == '' || id == 0)){
+            status = 1;
+        }
+
+        if (status == 1 && insuranceCompanyName != '' && insuranceCompanyId != '' && insuranceCompanyId != 0 && insuranceCompanyName != '--' && insuranceCompanyId != '--')
+            inquiryInsuranceListNew.push(inquiryInsurance);
+        else if (status == 2 && insuranceCompanyName != '' && insuranceCompanyId != '' && insuranceCompanyId != 0 && insuranceCompanyName != '--' && insuranceCompanyId != '--')
+            inquiryInsuranceListUpdate.push(inquiryInsurance);
+        else if (status == 3)
+            inquiryInsuranceListDelete.push(inquiryInsurance);
+        else if (status == 2 && (insuranceCompanyName == '' || insuranceCompanyName == '--')  && (insuranceCompanyId == '' || insuranceCompanyId == 0 || insuranceCompanyId == '--') && id>0)
+            inquiryInsuranceListDelete.push(inquiryInsurance);
+    }
+
+    frm.elements['newListJson'].value = JSON.stringify(inquiryInsuranceListNew);
+    frm.elements['deleteListJson'].value = JSON.stringify(inquiryInsuranceListDelete);
+    frm.elements['updateListJson'].value = JSON.stringify(inquiryInsuranceListUpdate);
+
+    frm.elements['newItemListJson'].value = JSON.stringify(itemInquiryInsuranceListNew);
+    frm.elements['deleteItemListJson'].value = JSON.stringify(itemInquiryInsuranceListDelete);
+    frm.elements['updateItemListJson'].value = JSON.stringify(itemInquiryInsuranceListUpdate);
+    return true;
+}
+function submitConfirm()
+{
+    hideClientError();
+    if (gE('errorMessages'))
+        gE('errorMessages').style.display = 'none';
+
+    if (gE('successMsg'))
+        gE('successMsg').style.display = 'none';
+    var frm = document.forms[0];
+    if(!validateForm(document.forms[0],document.forms[0].selectedItemIndex.value, document.forms[0].selectedServiceIndex.value)){
+        return false;
+    }
+
+
+    frm.elements['inquiry.insurancePrice'].disabled = '';
+
+
+    makeLists();
+
+    var url = "/eproc" + '/supplierNeedResponse-submit.do';
+
+    frm.action = url;
+//    frm.submit();
+    return true;
+}
+function sendConfirm()
+{
+    hideClientError();
+    if (gE('errorMessages'))
+        gE('errorMessages').style.display = 'none';
+
+    if (gE('successMsg'))
+        gE('successMsg').style.display = 'none';
+    var frm = document.forms[0];
+    if(!validateForm(document.forms[0],document.forms[0].selectedItemIndex.value, document.forms[0].selectedServiceIndex.value)){
+        return false;
+    }
+
+    
+    if (parseFloat(frm.elements['inquiry.totalPrice'].value.replace(/,/g, '')) > parseFloat(frm.elements['financialYear.smallPurchasingPrice'].value.replace(/,/g, ''))) {
+        if (!confirm('مبلغ پيشنهاد از سقف خريد جزيي بالاتر است. مورد تاييد است؟'))
+            return false;
+    }
+    
+
+
+    
+
+
+
+    makeLists();
+
+
+
+    if (!confirm('آيا براي ارسال پاسخ نياز مطمئن هستيد؟'))
+        return false;
+
+
+    var hashText = '194208,' +
+            '277286,' +
+            '473508,' +
+            parseFloat(frm.elements['inquiry.totalPrice'].value.replace(/,/g, ''));
+
+    
+    var url = "/eproc" + '/supplierNeedResponse-send.do';
+    frm.action = url;
+//    frm.submit();
+    
+}
+var dataStore;
+function certificateMethod(hashText) {
+
+    var hashItem = [
+        {
+            "hashValue":hashText
+        }
+    ];
+
+    dataStore = JSON.stringify(hashItem);
+
+    showPopUp('sign', 'sign.do?operationType=sign');
+}
+function closeWindow() {
+    hidePopUp('sign');
+}
+
+function errorPage() {
+}
+function successPage(result) {
+    var frm = document.forms[0];
+    var item = eval('(' + result + ')');
+
+    frm.elements['certificate'].value = item[0]['certificateText'];
+    frm.elements['signedText'].value = item[0]['signedText'];
+
+    var url = "/eproc" + '/supplierNeedResponse-send.do';
+    frm.action = url;
+    frm.submit();
+
+}
+
+function cancel_page()
+{
+    var url = "/eproc" + '/supplierNeedResponse-load.do';
+    var frm = document.forms[0];
+    frm.action = url;
+    frm.submit();
+
+}
+function call_Exit()
+{
+    var frm = document.forms[0];
+
+    if (!isDirtyPage) {
+        window.location = 'home.do';
+    }
+    else {
+        showConfirm('registerConfirm');
+    }
+}
+
+function yesRegister()
+{
+    var frm = document.forms[0];
+    hideConfirm();
+    frm.elements['exitMode'].value = 'true';
+    gE('submitBtn').click();
+}
+function noRegister()
+{
+    hideConfirm();
+    window.location = 'home.do';
+}
+function cancelRegister()
+{
+    hideConfirm();
+}
+
+
+jQuery(document).ready(function ()
+{
+
+    jQuery('#allItemsDeliveryDate').calendarsPicker({calendar:jQuery.calendars.instance('persian', 'fa'), onSelect:function ()
+    {
+        isDirtyPage = true;
+
+
+        if (jQuery('#allItemsDeliveryDate').val() != '') {
+            jQuery('.calendar').val(jQuery('#allItemsDeliveryDate').val());
+        }
+    }});
+
+    jQuery('#allItemsDeliveryDate').blur(function()
+    {
+        isDirtyPage = true;
+
+
+        if (this != '') {
+            if (this.value.length != 10) {
+                this.value = '';
+            }
+            else {
+                if (!isValidDate(this.value)) {
+                    this.value = '';
+                }
+            }
+        }
+
+        if (jQuery('#allItemsDeliveryDate').val() != '') {
+            jQuery('.calendar').val(jQuery('#allItemsDeliveryDate').val());
+        }
+
+    });
+    if(jQuery('#itemClose').val()=='true'){
+        gE("itemInfoPlus").style.display = "";
+        gE("itemInfoMinus").style.display = "none";
+        jQuery("#itemLoadGrid").slideToggle("fast");
+    }
+    if (jQuery('#serviceClose').val()=='true') {
+        gE("serviceInfoPlus").style.display = "";
+        gE("serviceInfoMinus").style.display = "none";
+        jQuery("#serviceGrid").slideToggle("fast");
+    }
+
+});
+
+function calAllItemsDeliveryDate()
+{
+
+    if (jQuery('#allItemsDeliveryDate').val() != '') {
+        jQuery('.calendar').val(jQuery('#allItemsDeliveryDate').val());
+    }
+
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+
+<table width="1000" height="100%" cellspacing="0" cellpadding="0" align="center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <style type="text/css">
+        .linkColor {
+            color: white !important;
+            text-decoration: none !important;
+        
+        }
+        #headerMenu{
+            padding-right: 0px;
+            text-align: right;
+            direction: rtl;
+            vertical-align:middle;
+            margin-top:5px;
+            margin-bottom:5px;
+            margin-right:0px;
+        }
+         #headerMenu li{
+             display: inline;
+             text-align: center;
+             list-style-type:none;
+             padding: 0px 15px 0px 15px;
+         }
+        #headerMenu li a:hover{
+            color: #337ab7;
+        }
+        #headerMenu li a{
+            color:  rgb(99, 99, 99);
+            font-style: normal;
+            text-decoration: none;
+            font-size: 11px;
+
+        }
+    </style>
+
+<tbody><tr id="header" style="height:102px;">
+    <td colspan="3" style="background-image:url('images/baner_epc.jpg?_13940422_01');background-repeat:no-repeat;background-size: 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/baner_epc.jpg?_13940422_01',sizingMethod='scale');" align="left">
+
+    </td>
+</tr>
+<tr>
+    <td colspan="3" style="height: 20px" valign="middle" bgcolor="white">
+            <ul id="headerMenu">
+                <li>
+                    <a href="https://www.setadiran.ir/setad/cms/systemRequirements" target="_blank">
+                        پیش نیاز های سیستمی
+                    </a>
+                </li>
+                <li>
+
+                    <a href="https://www.setadiran.ir/setad/cms/education" target="_blank">
+                        آموزش
+                    </a></li>
+                <li>
+
+                    <a href="https://www.setadiran.ir/setad/cms/policy" target="_blank">
+                        قوانين و مقررات
+                    </a></li>
+                <li>
+
+                    <a href="https://www.setadiran.ir/setad/cms/digitalSign" target="_blank">
+                        امضاي الکترونيکي
+                    </a>
+                </li>
+                <li>   
+
+                    <a href="https://www.setadiran.ir/setad/cms/faq" target="_blank">
+                        سوالات متداول
+                    </a>
+                </li>
+                <li>
+
+                    <a href="https://www.setadiran.ir/setad/cms/newsList" target="_blank">
+                        اخبار
+                    </a></li>
+
+
+                <li>
+
+                    <a href="https://www.setadiran.ir/setad/cms/announcparent?type=eproc" target="_blank">
+                        اطلاعیه ها
+                    </a></li>
+            </ul>
+</td>
+</tr>
+<tr height="20">
+    <td colspan="3" style="padding-top: inherit;" valign="middle" bgcolor="gray">
+        <div style="float:right;margin-right:10px">
+		<span class="linkColor">
+
+            
+       
+
+    
+                <span dir="rtl">
+                کاربر
+                (
+                    <span class="linkColor" style="font-weight: bold; vertical-align: top;">&nbsp;تامین کننده</span>
+                )
+                <span class="linkColor" style="font-weight: bold; vertical-align: top;">:&nbsp;طرح پرداز جلگه</span>
+                </span>
+
+    
+    <span class="linkColor">&nbsp;|&nbsp;</span>
+    <a href="https://eproc.setadiran.ir/eproc/beforeLogout.do" style="font-family: tahoma" class="linkColor">خروج</a>
+
+
+
+            
+
+        </span>
+        </div>
+        <div style="float:left;margin-left:10px; vertical-align: top;">
+
+            
+            <input id="hHour" value="01" type="hidden">
+            <input id="hMin" value="47" type="hidden">
+            <input id="hSec" value="41" type="hidden">
+
+            <input id="hMin1" value="13" type="hidden">
+            <input id="hSec1" value="19" type="hidden">
+
+            
+            <font style="font-family: tahoma;font-size: 11;color: white;vertical-align: top;">
+                زمان باقیمانده :
+            </font>
+                   <span dir="rtl" style="vertical-align: middle; background-color: #026890;color: #ffffff;height:20px; width: 42px;border-style: solid;border-width: 0px;border-color: black;text-align:center; " id="timerSpan1">۱۳:۱۹</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            <span dir="rtl" style="color: white; vertical-align: top;" id="timerSpan">۰۱:۴۷:۴۱</span>
+            &nbsp;
+
+			<span dir="rtl" style="color: white; vertical-align: top" id="dateSpan">
+				
+				شنبه
+				۶
+				مرداد
+	            ۱۳۹۷
+			</span>
+        </div>
+    </td>
+</tr>
+
+
+<script type="text/javascript">
+    var h = gE('hHour').value;
+    var m = gE('hMin').value;
+    var s = gE('hSec').value;
+
+    var m1 = gE('hMin1').value;
+    var s1 = gE('hSec1').value;
+
+
+    function formatTime1()
+    {
+        if ((m1 + '').length == 1) m1 = '0' + m1;
+        if ((s1 + '').length == 1) s1 = '0' + s1;
+
+        return encodeNumbers(m1 + ':' + s1);
+    }
+
+    function formatTime()
+    {
+        if ((h + '').length == 1) h = '0' + h;
+        if ((m + '').length == 1) m = '0' + m;
+        if ((s + '').length == 1) s = '0' + s;
+
+        return encodeNumbers(h + ':' + m + ':' + s);
+    }
+
+    gE('timerSpan').innerHTML = formatTime();
+
+    
+
+    gE('timerSpan1').innerHTML = formatTime1();
+
+    function doClock1()
+    {
+
+        if (s1 != 0) {
+            s1--;
+        }
+        else if (m1 != 0) {
+            m1--;
+            s1 = 59;
+        }
+        if (m1 == 0 && s1 == 0) {
+            window.location = "entry.do";
+        }
+
+
+        gE('hMin1').value = m1;
+        gE('hSec1').value = s1;
+
+        gE('timerSpan1').innerHTML = formatTime1();
+
+        setTimeout('doClock1()', 1000);
+        if (m1 == 1 && s1 == 59) {
+            gE('timerSpan1').style.backgroundColor = "#aa0000";
+            gE('timerSpan1').style.color = "#ffffff";
+        }
+        if (m1 == 4 && s1 == 59) {
+            gE('timerSpan1').style.backgroundColor = "#FFCC00";
+            gE('timerSpan1').style.color = "#000000";
+        }
+    }
+    setTimeout('doClock1()', 1000);
+    
+    function doClock()
+    {
+        if (s != 59) {
+            s++;
+        }
+        else if (m != 59) {
+            m++;
+            s = 0;
+        }
+        else if (h != 24) {
+            h++;
+            m = 0;
+            s = 0;
+
+            if (h == 24) {
+                h = 0;
+                try {
+                    var result = getContent('entry.do?method=getCurrentDate');
+                    var resultArray = result.split(";");
+
+                    gE('dateSpan').innerHTML = resultArray[0];
+                    gE('hHour').value = resultArray[1];
+                    gE('hMin').value = resultArray[2];
+                    gE('hSec').value = resultArray[3];
+                }
+                catch (e) {
+
+                }
+            }
+        }
+
+        gE('hHour').value = h;
+        gE('hMin').value = m;
+        gE('hSec').value = s;
+
+        gE('timerSpan').innerHTML = formatTime();
+
+        setTimeout('doClock()', 1000);
+    }
+    setTimeout('doClock()', 1000);
+
+
+</script>
+<script>
+    jQuery.easing.custom = function (x, t, b, c, d)
+    {
+        var s = 1.70158;
+        if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
+        return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+    }
+    jQuery("div.scrollable").scroll({easing:'custom', speed:700, circular:true});
+
+    jQuery(document).ready(function ()
+                      {
+                          jQuery('#dateSpan').html(Number2Farsi(jQuery('#dateSpan').html()));
+
+                      });
+</script>
+
+
+<tr id="body">
+<td id="workspace" dir="rtl" style="border-left:1px solid #B6B6B8" valign="top" align="right">
+
+<table width="100%" cellspacing="10" cellpadding="0" align="right">
+
+<tbody><tr id="devider" height="2">
+    <td style="width: 100%;height: 2pt;" background="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/devider.gif"></td>
+</tr>
+
+<tr id="ws_body">
+<td width="850px">
+<table style="text-align:right" width="100%">
+
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr>
+    <td colspan="" style="color:white;background-color:#8F6D40;border:solid 1px black;padding:10px;direction:rtl">
+        &nbsp;&nbsp;&nbsp;&nbsp;پاسخ به نياز (اعلام آمادگي براي تامين درخواست خريد)
+        
+    </td>
+    
+</tr>
+
+
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="">
+        <a name="errorBoxLink"></a>
+        <table id="clientErrorBox" cellspacing="6"></table>
+    </td>
+</tr>
+
+    <tr>
+        <td class="successMessages" id="successMsg">
+            كاربر گرامي پاسخ نياز با موفقيت ثبت شد.
+        </td>
+    </tr>
+
+
+
+<tr>
+    <td>
+<span id="errorMessages">
+
+</span>
+    </td>
+</tr>
+
+<tr>
+<td>
+
+<form name="SupplierNeedResponseForm" id="supplierNeedResponseFormId" method="post" action="/eproc/supplierNeedResponse-load.do"><div><input name="org.apache.struts.taglib.html.TOKEN" value="d6044a7b30a676e6e9f746810e8d4820" type="hidden"></div>
+
+
+
+
+
+
+
+
+
+
+<div id="signDiv" style="display:none">
+    <iframe src="" style="width:800px;height:300px" id="signFrame" frameborder="0"></iframe>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="registerConfirmDiv" style="display:none;">
+    <div style="height:100px;width:300px;background:#cccccc;font-size:12px;padding:20px;font-family:Tahoma;" dir="rtl">
+        کاربر گرامي؛ اطلاعات اين فرم ذخيره نشده است. آيا با ذخيره اين اطلاعات موافقيد؟
+        <br>
+        <br>
+        <input onclick="yesRegister()" value="بلی" type="button">
+        <input onclick="noRegister()" value="خیر" type="button">
+        <input onclick="cancelRegister()" value="انصراف" type="button">
+    </div>
+</div>
+<input name="conversion(inquiry.id)" value="473508" type="hidden">
+<input name="financialYear.smallPurchasingPrice" value="250000000" type="hidden">
+<input name="financialYear.mediumPurchasingPrice" value="2500000000" type="hidden">
+<input name="inquiry.version" value="1" type="hidden">
+<input name="inquiry.purchaseNeed.version" value="4" type="hidden">
+<input name="inquiry.purchaseRequest.type" value="581" type="hidden">
+<input name="certificate" value="" type="hidden">
+<input name="signedText" value="" type="hidden">
+<input name="inquiry.purchaseRequest.domainType" value="1432" type="hidden">
+<input name="selectedServiceIndex" value="0" type="hidden">
+<input name="selectedItemIndex" value="0" type="hidden">
+<input name="exitMode" value="false" type="hidden">
+<input name="newListJson" value="[]" type="hidden">
+<input name="deleteListJson" value="[]" type="hidden">
+<input name="updateListJson" value="[]" type="hidden">
+<input name="newItemListJson" value="[]" type="hidden">
+<input name="deleteItemListJson" value="[]" type="hidden">
+<input name="updateItemListJson" value="[]" type="hidden">
+<input name="formDisable" value="false" type="hidden">
+<input name="conversion(inquiry.purchaseNeed.id)" value="277286" type="hidden">
+<input name="conversion(inquiry.purchaseRequest.id)" value="288213" type="hidden">
+<input name="conversion(inquiry.purchaseRequest.confirmer.id)" value="" type="hidden">
+<input name="conversion(inquiry.purchaseRequest.creatorInfo.id)" value="14554" type="hidden">
+<input name="itemClose" value="false" id="itemClose" type="hidden">
+<input name="serviceClose" value="false" id="serviceClose" type="hidden">
+<table width="750">
+
+
+</table>
+<table width="750px">
+    <tbody><tr>
+        <td colspan="4">
+
+                <table width="100%">
+                    <tbody><tr>
+                        <td dir="rtl">
+                            تامين کننده گرامي:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td dir="rtl" width="80%">
+                            - پاسخگويي به نياز ذيل به معناي ارسال پاسخ 
+نياز به خريدار بوده و اطلاعات ثبت شده پس از ارسال قابل تغيير نمي باشد. 
+لذا در تکميل فيلدها، دقت لازم را به عمل آورديد.
+                        </td>
+                    </tr>
+                    
+                </tbody></table>
+
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <table cellspacing="2" cellpadding="2">
+                <tbody><tr>
+
+                    <td align="right">
+                        شماره پاسخ :
+                    </td>
+                    <td align="right">
+                        <input name="inquiry.inquiryNo" value="22973140001295" disabled="disabled" style="text-align:center" type="text">
+                    </td>
+                    <td align="right">
+                        شماره نياز :
+                    </td>
+                    <td align="right">
+                        <input name="inquiry.purchaseNeed.needNo" value="11973140000206" disabled="disabled" style="text-align:center" type="text">
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td align="right">
+                        تاريخ و ساعت ثبت پاسخ :
+                    </td>
+                    <td style="width:100px" align="right">
+                        
+
+
+
+
+
+
+
+
+
+
+
+    
+        <input name="inquiry.createDate" maxlength="10" value="1397/05/06 - 01:46" disabled="disabled" id="inquiry.createDate" style="direction:ltr; text-align: center; width:px;" class="calendar is-calendarsPicker" type="text">
+    
+    
+
+
+
+<script type="text/javascript">
+    jQueryMaskCalendar();
+</script>
+
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="width:150px" align="right">
+                        تاريخ و ساعت ارسال پاسخ :
+                    </td>
+                    <td align="right">
+                        
+
+
+
+
+
+
+
+
+
+
+
+    
+        <input name="inquiry.needResponseSendDate" maxlength="10" disabled="disabled" id="inquiry.needResponseSendDate" style="direction:ltr; text-align: center; width:px;" class="calendar is-calendarsPicker" type="text">
+    
+    
+
+
+
+<script type="text/javascript">
+    jQueryMaskCalendar();
+</script>
+
+
+                    </td>
+                    <td></td>
+                    <td align="left">
+                        <a href="javascript:showNeedDetails()">
+                            مشاهده فرم جزييات اطلاعات نياز - انتخاب تامين کننده
+                        </a>
+                    </td>
+                </tr>
+
+            </tbody></table>
+            <table>
+
+                <tbody><tr>
+                    <td style="text-align:left;" align="right">
+
+                        عنوان کلي نياز:
+
+                    </td>
+                    <td>
+                        <textarea name="inquiry.purchaseNeed.needName" readonly="readonly" style="width:300px;">طراحی سایت و پورتال اداره کل میراث فرهنگی،صنایع دستی و گردشگری استان گیلان به نشانی gilanchto.ir</textarea>
+                    </td>
+                    <td style="text-align:left;" align="right">
+
+                        گروه کالا:
+
+                    </td>
+                    <td colspan="2">
+                        <input name="inquiry.purchaseNeed.item.name" disabled="disabled" style="width:200px" type="text">
+                    </td>
+                </tr>
+
+            </tbody></table>
+            <table>
+
+                
+                <tbody><tr>
+                    <td colspan="4" style="color:Red" align="right">
+                        کاربر گرامی، چنانچه تاریخ تحویل همه کالاها و 
+خدمات در یک تاریخ می باشد، تاریخ مورد نظر را در فیلد زیر وارد نمایید.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        تاريخ تحويل کليه خدمات/کالاها :
+                        &nbsp;
+                        
+                        <input name="allItemsDeliveryDate" maxlength="10" onblur="calAllItemsDeliveryDate()" id="allItemsDeliveryDate" style="direction:ltr; text-align: center; width:100px;" class="is-calendarsPicker" type="text">
+                    </td>
+                </tr>
+                <tr height="10">
+                    <td colspan="4"></td>
+                </tr>
+                
+            </tbody></table>
+        </td>
+    </tr>
+
+</tbody></table>
+
+<table width="750">
+    <tbody><tr>
+
+        <td style="font-weight:bold" id="showItemGrid">
+            
+        </td>
+    </tr>
+    
+    <tr>
+
+        <td style="font-weight:bold" id="showServiceGrid">
+            
+                <span id="serviceInfoMinus" class="pointer">-</span>
+                <span id="serviceInfoPlus" class="pointer" style="display: none">+</span>
+                اطلاعات خدمات مورد نياز
+
+
+        </td>
+    </tr>
+    
+        <tr>
+            <td>
+                <div id="serviceGrid">
+                    <table width="100%">
+                        <tbody><tr>
+                            <td>
+                                <br>
+
+                                <table id="serviceList" style="font-family:tahoma;font-size:9pt;table-layout:fixed;background-color:gray" cellspacing="0" cellpadding="0" border="0">
+                                    <colgroup>
+                                        <col width="32px">
+                                        <col width="420px">
+                                        <col width="120px">
+                                        <col width="83px">
+                                        <col width="73px">
+                                    </colgroup>
+
+                                    <tbody><tr style="background-color:silver" height="30">
+                                        <td style="border-left:gray 1px solid;border-bottom:gray 1px solid;border-right:gray 1px solid;padding-right:2px;border-top: gray 1px solid" align="center"> &nbsp;رديف</td>
+                                        <td style="border-left:gray 1px solid;border-bottom:gray 1px solid;padding-right:2px;border-top: gray 1px solid;text-align:center" align="center">
+                                                
+                                            <table style="width:100%" cellspacing="0" cellpadding="0">
+                                                <tbody><tr>
+                                                    <td colspan="4" style="border-bottom:gray solid 1px" align="center">
+                                                        مشخصات خدمت
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;border-left:gray solid 1px;" align="center">
+                                                        کد
+                                                    </td>
+                                                    <td style="width:40%;border-left:gray solid 1px" align="center">
+                                                        نام/شرح
+                                                    </td>
+                                                    <td style="width:30%" align="center">
+                                                        واحد اندازه گیری
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+
+                                        <td style="border-left:gray 1px solid;border-bottom:gray 1px solid;padding-right:2px;border-top: gray 1px solid;text-align:center" align="center">مقدار</td>
+                                        <td style="border-left:gray 1px solid;border-bottom:gray 1px solid;padding-right:2px;border-top: gray 1px solid;text-align:center" align="center">تاريخ نياز</td>
+                                        <td style="border-left:gray 1px solid;border-bottom:gray 1px solid;padding-right:2px;border-top: gray 1px solid;text-align:center" align="center">انتخاب رديف</td>
+                                    </tr>
+
+
+                                    
+                                        
+                                            
+                                                
+                                                <tr style="background-color:darkseagreen;height:21;">
+                                                    <td class="gridCell" style="min-height:22;text-align:center">1</td>
+                                                    <td align="center">
+                                                        <table style="width:100%;height:21px" cellspacing="0" cellpadding="0">
+                                                            <tbody><tr>
+                                                                <td style="width:30%;border-left:gray solid 1px;border-bottom:gray 1px solid;" align="center">
+                                                                    د-62-620
+                                                                </td>
+                                                                <td style="width:40%;border-left:gray solid 1px;border-bottom:gray 1px solid;" align="right">
+                                                                    برنامه‌ نویسی، مشاوره و فعالیت‌های مربوط به رایانه
+                                                                </td>
+                                                                <td style="width:30%;border-left:gray 1px solid;border-bottom:gray 1px solid;" align="right">
+                                                                    &nbsp;عدد
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+
+                                                    
+                                                    <td class="gridCell" style="text-align:center">&nbsp;<span id="serviceAmount_0">1</span></td>
+                                                    
+
+                                                    <td class="gridCell">&nbsp; <bdo dir="ltr"><span id="serviceNecessaryDate_0">1397/05/10</span></bdo></td>
+
+                                                    <td class="gridCell" style="padding-top:3px" align="center">
+                                                        <input src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/edit.gif" onclick="return serviceEditRow(0)" type="image">
+                                                    </td>
+                                                </tr>
+
+                                            
+                                        
+                                    
+                                </tbody></table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                                    <table id="coloredAlertTable" width="100%">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="coloredAlertHelp" style="background-color:darkseagreen;">&nbsp;&nbsp;&nbsp;</span>
+                                                رديف جاري
+                                            </td>
+                                            <td>
+                                                <span class="coloredAlertHelp" style="background-color:yellow;">&nbsp;&nbsp;&nbsp;</span>
+                                                رديف ذخيره شده
+                                            </td>
+
+                                        </tr>
+                                    </tbody></table>
+
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="redStar" align="right">
+                                لازم به ذکر است کلیه مبالغ به ریال می باشد.
+                            </td>
+                        </tr>
+                        <tr class="devider" height="5">
+                            <td colspan="4"></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                اطلاعات ردیف خدمت
+                            </td>
+                        </tr>
+                        <tr class="devider" height="5">
+                            <td colspan="4"></td>
+                        </tr>
+                        <tr>
+                            <td ondragstart="return false;" ondrop="return false;">
+                                
+                                <table width="100%">
+                                    <tbody><tr>
+                                        <td align="right">
+                                            <span class="redStar">*</span>
+                                            تاريخ تحويل خدمت :
+                                        </td>
+                                        <td align="right">
+                                            
+
+
+
+
+
+
+
+
+
+
+
+    
+        <input name="inquiryServiceItems[0].deliveryDate" maxlength="10" value="1397/05/09" id="inquiryServiceItems[0].deliveryDate" style="direction:ltr; text-align: center; width:px;" class="calendar is-calendarsPicker" type="text">
+    
+    
+
+
+
+<script type="text/javascript">
+    jQueryMaskCalendar();
+</script>
+
+
+
+                                        </td>
+                                        <td align="right">
+                                            <span class="redStar">*</span>
+                                            قیمت واحد پایه خدمت :
+                                        </td>
+                                        <td align="right">
+
+
+                                            <input value="85,000,000" id="inquiryServiceItems[0].price" onclick="calcTotalPrice();dataChanged();moneyCommaSep(this);" onchange="calcTotalPrice();dataChanged();moneyCommaSep(this);" onkeypress="return numbericOnKeypressWithoutDot(event)" onkeyup="cama(event,this);calcTotalPrice();dataChanged()" name="inquiryServiceItems[0].price" maxlength="15" type="text">
+                                            <input name="hidden_basePrice" id="hidden_basePrice" value="85000000" type="hidden">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td align="right">
+                                            ساير هزينه ها :
+                                        </td>
+                                        <td align="right">
+
+
+                                            <input value="0" id="inquiryServiceItems[0].otherCosts" onclick="calcTotalPrice();dataChanged();moneyCommaSep(this);" onchange="calcTotalPrice();dataChanged();moneyCommaSep(this);" onkeypress="return numbericOnKeypressWithoutDot(event)" onkeyup="cama(event,this);calcTotalPrice();dataChanged()" name="inquiryServiceItems[0].otherCosts" maxlength="15" type="text">
+                                            <input name="hidden_serviceOtherCosts" id="hidden_serviceOtherCosts" value="0" type="hidden">
+                                        </td>
+                                        <td width="160" align="right">
+                                            شرح ساير هزينه ها :
+                                        </td>
+                                        <td align="right">
+
+                                            <input name="inquiryServiceItems[0].otherCostsDescription" maxlength="250" style="width:200;" type="text">
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td align="right">
+                                            قيمت کل خدمت  :
+                                        </td>
+                                        <td align="right">
+
+                                            <input name="inquiryServiceItems[0].totalPrice" value="85,000,000" disabled="disabled" class="priceClass" type="text">
+                                            <input id="hidden_serviceTotalPrice" value="85000000" type="hidden">
+
+                                        </td>
+                                        <td align="right">
+                                            توضيحات :
+                                        </td>
+                                        <td align="right">
+                                            <textarea name="inquiryServiceItems[0].description" id="inquiryServiceItems[0].description" style="text-align:right;width:200px;height:50px"></textarea>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody></table>
+                            </td>
+                        </tr>
+
+                    </tbody></table>
+                </div>
+            </td>
+        </tr>
+    
+
+</tbody></table>
+
+
+
+<table width="750">
+    <tbody><tr>
+        <td ondragstart="return false;" ondrop="return false;">
+            <table width="100%">
+                <tbody><tr class="devider" height="5">
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">
+                        اطلاعات کل نياز
+                    </td>
+                </tr>
+                <tr class="devider" height="5">
+                    <td colspan="4"></td>
+                </tr>
+
+
+
+                <tr>
+                    <td align="right">بيمه هاي کل نياز</td>
+                    <td colspan="3">
+
+                        <table id="table_inquiryInsurance_list" cellspacing="0" cellpadding="0" border="1">
+                            <tbody><tr style="background-color:#cccccc">
+                                <td style="width:0px;display:none">
+                                </td>
+                                <td style="width:200px" align="center">
+                                    شرکت بيمه
+                                </td>
+                                <td style="width:200px" align="center">
+                                    نوع بيمه
+                                </td>
+                                <td style="width:100px" align="center">
+                                    هزينه بيمه
+                                </td>
+                                <td style="width:20px" align="center">
+                                    <input name="" value="افزودن سطر" onclick="dataChanged();addInquiryInsuranceRow();" style="width:90px" class="public-btn" type="button">
+                                </td>
+                            </tr>
+                            <tr id="row_inquiryInsurance_-1" style="display:none">
+                                <td style="width:0px;display:none">
+                                    <input name="inquiryInsurances_inquiryInsuranceId" id="inquiryInsurances_inquiryInsuranceId" type="hidden">
+                                </td>
+                                <td style="width:0px;display:none">
+                                    <input name="inquiryInsurances_version" id="inquiryInsurances_version" type="hidden">
+                                </td>
+                                <td style="width:0px;display:none">
+                                    <input name="status" type="hidden">
+                                </td>
+                                <td align="center">
+                                    <select name="inquiryInsurances_insuranceCompany_name" id="inquiryInsurances_insuranceCompany_name" style="width:190px;align:center" onchange="dataChanged();changeInsuranceName('bindInsuranceType',this,-1)">
+                                        <option value="--" selected="selected">--</option>
+                                        
+                                            
+                                                <option value="آسیا">آسیا</option>
+                                            
+                                                <option value="البرز">البرز</option>
+                                            
+                                                <option value="ایران">ایران</option>
+                                            
+                                                <option value="ایران معین">ایران معین</option>
+                                            
+                                                <option value="تجارت نو">تجارت نو</option>
+                                            
+                                                <option value="توسعه">توسعه</option>
+                                            
+                                                <option value="حافظ">حافظ</option>
+                                            
+                                                <option value="دانا">دانا</option>
+                                            
+                                                <option value="دی">دی</option>
+                                            
+                                                <option value="رازی">رازی</option>
+                                            
+                                                <option value="سامان">سامان</option>
+                                            
+                                                <option value="سرمد">سرمد</option>
+                                            
+                                                <option value="سینا">سینا</option>
+                                            
+                                                <option value="ما">ما</option>
+                                            
+                                                <option value="معلم">معلم</option>
+                                            
+                                                <option value="ملت">ملت</option>
+                                            
+                                                <option value="میهن">میهن</option>
+                                            
+                                                <option value="نوین">نوین</option>
+                                            
+                                                <option value="پارسیان">پارسیان</option>
+                                            
+                                                <option value="پاسارگارد">پاسارگارد</option>
+                                            
+                                                <option value="کارآفرین">کارآفرین</option>
+                                            
+                                                <option value="کوثر">کوثر</option>
+                                            
+                                        
+                                    </select>
+                                </td>
+                                <td align="center">
+                                    <select name="inquiryInsurances_insuranceCompany_insuranceCompanyId" onchange="changeStatusOfInquiryInsurance(this);" id="inquiryInsurances_insuranceCompany_insuranceCompanyId" style="width:190px;align:center">
+                                        <option value="--" selected="selected">--</option>
+                                        
+                                    </select>
+                                </td>
+                                <td>
+                                    <input name="inquiryInsurancePrice_price" id="inquiryInsurancePrice_price" style="width:100px;align:right" maxlength="15" onkeyup="cama(event,this);changeStatusOfInquiryInsurance(this);calcTotalPrice();" onblur="calcTotalPrice();" onkeypress="return numbericOnKeypressWithoutDot(event)" type="text">
+                                </td>
+                                <td align="center">
+                                    <input class="public-btn" name="-1" id="inquiryInsuranceRemoveBtn-1" style="align:center;width:90px" value="حذف سطر" onclick="dataChanged();removeInquiryInsuranceRow(this);" type="button">
+                                </td>
+                            </tr>
+
+                            <tr id="row_inquiryInsurance_0">
+                                <td style="width:0px;display:none">
+                                    <input name="inquiryInsurances[0].inquiryInsuranceId" value="" id="inquiryInsuranceDtos[0].inquiryInsuranceId" type="hidden">
+                                    
+                                </td>
+                                <td style="width:0px;display:none">
+                                    <input name="inquiryInsurances[0].version" value="" id="inquiryInsuranceDtos[0].version" type="hidden">
+                                        
+                                </td>
+                                <td style="width:0px;display:none">
+                                    <input name="status" value="0" type="hidden">
+                                </td>
+                                <td align="center">
+                                    <select name="inquiryInsurances[0].insuranceCompany.name" onchange="dataChanged();changeInsuranceName('bindInsuranceType',this, 0)" id="inquiryInsurances[0].insuranceCompany.name" style="width:190px"><option value="--" selected="selected">--</option>
+                                        
+                                            <option value="آسیا">آسیا</option>
+<option value="البرز">البرز</option>
+<option value="ایران">ایران</option>
+<option value="ایران معین">ایران معین</option>
+<option value="تجارت نو">تجارت نو</option>
+<option value="توسعه">توسعه</option>
+<option value="حافظ">حافظ</option>
+<option value="دانا">دانا</option>
+<option value="دی">دی</option>
+<option value="رازی">رازی</option>
+<option value="سامان">سامان</option>
+<option value="سرمد">سرمد</option>
+<option value="سینا">سینا</option>
+<option value="ما">ما</option>
+<option value="معلم">معلم</option>
+<option value="ملت">ملت</option>
+<option value="میهن">میهن</option>
+<option value="نوین">نوین</option>
+<option value="پارسیان">پارسیان</option>
+<option value="پاسارگارد">پاسارگارد</option>
+<option value="کارآفرین">کارآفرین</option>
+<option value="کوثر">کوثر</option></select>
+                                </td>
+                                <td align="center">
+                                    <select name="inquiryInsurances[0].insuranceCompany.insuranceCompanyId" onchange="changeStatusOfInquiryInsurance(this);" id="inquiryInsurances[0].insuranceCompany.insuranceCompanyId" style="width:190px"><option value="--" selected="selected">--</option></select>
+                                </td>
+                                <td>
+
+                                    <input value="0" id="inquiryInsurancePrice[0]" onclick="calcTotalPrice();dataChanged();moneyCommaSep(this);" maxlength="15" onchange="calcTotalPrice();dataChanged();moneyCommaSep(this);" onkeypress="return numbericOnKeypressWithoutDot(event)" onkeyup="cama(event,this);calcTotalPrice();dataChanged();changeStatusOfInquiryInsurance(this);" name="inquiryInsurancePrice[0]" style="width:100%" type="text">
+
+
+                                </td>
+                                <td align="center">
+                                    
+                                    <input class="public-btn" name="0" id="inquiryInsuranceRemoveBtn0" style="width:90px" value="حذف سطر" onclick="dataChanged();removeInquiryInsuranceRow(this);" type="button">
+                                </td>
+                            </tr>
+
+                            
+                        </tbody></table>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <td colspan="4" align="right">مجموع هزينه بيمه هاي کل نياز :
+
+
+                        <input name="inquiry.insurancePrice" value="0" disabled="disabled" class="priceClass" type="text">
+                        <input name="hidden_itemInquiryInsurancePrice" id="hidden_itemInquiryInsurancePrice" value="0" type="hidden">
+                    </td>
+                </tr>
+                <tr class="devider" height="5">
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold" align="right">
+                        هزينه نهايي بيمه :
+                    </td>
+                    <td colspan="3" align="right">
+
+                        <input name="inquiryTotalInsurance" value="0" disabled="disabled" class="priceClass" type="text">
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td style="font-weight:bold" align="right">
+                        قيمت نهايي :
+                    </td>
+                    <td align="right">
+
+                        <input name="inquiry.totalPrice" value="85,000,000" disabled="disabled" class="priceClass" type="text">
+                        <input id="hidden_totalPriceNew" value="85000000" type="hidden">
+                    </td>
+                    <td colspan="2" align="right">
+                        <font color="red"> لازم به ذکر است اين قيمت بدون احتساب هرگونه ماليات مي باشد </font>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="4" valign="middle" align="right">
+                        <table>
+                            <tbody><tr>
+                                <td width="190" align="right">
+                                    توضيحات خريدار :
+                                </td>
+                                <td align="right">
+                                    <textarea name="inquiry.organizationCondition" disabled="disabled" style="text-align:right;width:400px;height:35px"></textarea>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="190" align="right">
+                                    شرايط تامين کننده براي دريافت وجه :
+                                </td>
+                                <td align="right">
+                                    <textarea name="inquiry.supplierCondition" onchange="dataChanged();" id="inquiry.supplierCondition" style="width:400px;height:75px"></textarea>
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+
+                    </td>
+                </tr>
+
+            </tbody></table>
+        </td>
+    </tr>
+
+
+</tbody></table>
+
+<table width="750">
+
+    <tbody><tr>
+
+        <td colspan="4" align="center">
+
+            <input value="ثبت" onclick="return submitConfirm()" id="submitBtn" class="positive-btn" type="submit">
+            <input value="ارسال به خريدار" onclick="return sendConfirm()" style="width:100px" class="positive-btn" type="submit">
+            <input name="" value="مدارک پيوستي (0)" onclick="return addAppendix()" id="btnAppenixes" style="width:130px;" class="positive-btn" type="button">
+            <input name="" value="انصراف" onclick="return cancel_page()" class="negative-btn" type="button">
+            <input name="" value="خروج" onclick="return call_Exit()" class="negative-btn" type="button">
+
+
+        </td>
+    </tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td id="right_bar" width="150" valign="top">
+    
+
+
+
+
+
+
+
+    <script type="text/javascript" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/stmenu.js"></script><script type="text/javascript" language="javascript1.2" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/stcode.js"></script>
+    <link rel="stylesheet" type="text/css" href="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/styles.css">
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        
+        jQuery('#right_bar table table table td ').click(function() {
+            jQuery('#right_bar table table table td').css('cursor','auto');
+
+
+            jQuery('#right_bar table table table td ').attr('disabled', 'disabled');
+            jQuery('#right_bar table table table td ').bind('click', function() {
+                return false;
+            });
+            jQuery('#right_bar table table table td img').bind('click', function() {
+                return false;
+            });
+        });
+        
+    });
+
+    stm_bm(["menu295c",800,"","images/blank.gif",0,"","",2,0,250,0,1000,1,0,0,"","",0,1,1,2,"hand","hand",""], this);
+    stm_bp("p0", [1,4,0,0,4,2,30,0,100,"",-2,"",-2,50,0,0,"#999999","transparent","",3,0,0,"#000000"]);
+    stm_ai("p0i0", [0,"","","",-1,-1,0,"","_self","","","images/icon_01.gif","images/icon_02.gif",0,0,0,"","",0,0,0,2,1,"#E6EFF9",1,"#FFD602",1,"","",3,3,0,0,"#E6EFF9","#000000","#666666","#000000","8pt Tahoma","8pt Tahoma",0,0]);
+
+    stm_aix("p0i1", "p0i0", [0,"صفحه اصلی","","",-1,-1,0,"https://eproc.setadiran.ir:443/eproc/home.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+
+    
+    
+    
+    
+
+    
+
+
+    
+    stm_aix("p0i1", "p0i0", [0,"سند راهنمای کاربر","","",-1,-1,0,"learn.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+
+    
+    stm_aix("p0i1", "p0i0", [0,"فیلم آموزشی","","",-1,-1,0,"trainingVideo.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+    
+    stm_aix("p0i1", "p0i0", [0,"پاسخ به نیاز ها","","",-1,-1,0,"needResponseCartable.do?sort=0","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+    
+    stm_aix("p0i1", "p0i0", [0," استعلام های دریافتی","","",-1,-1,0,"receivedInquiryCartable.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+
+    
+    
+    stm_aix("p0i1", "p0i0", [0,"پاسخ های پذیرفته شده","","",-1,-1,0,"responseWinnerCartable.do?sort=0","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+
+    
+    
+    stm_aix("p0i1", "p0i0", [0,"سفارش های دریافتی","","",-1,-1,0,"receivedOrderCartable.do?sort=0","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+
+    
+    
+    stm_aix("p0i1", "p0i0", [0,"الحاقیه های دریافتی (0)‏","","",-1,-1,0,"orderEditionCartable-loadAndSearch.do?sort=0","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+
+
+    
+    
+    stm_aix("p0i1", "p0i0", [0,"  ارسال کالا","","",-1,-1,0,"purchaseDeliveryCartable.do?sort=0","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"ارسال صورت وضعیت","","",-1,-1,0,"sentInvoiceCartable-loadAndSearch.do","_self","","","images/bt2.png","images/bt1.png", 30, 30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+
+
+    
+
+    
+
+    
+    
+    stm_aix("p0i1", "p0i0", [0," پرداخت کارمزد","","",-1,-1,0,"supplierWageCartable-load.do","_self","","","images/bt2.png","images/bt1.png", 30, 30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"تاييد چك","","",-1,-1,0,"performedPaymentTransactionCartable.do?sort=0","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"پروفایل","","",-1,-1,0,"supplierProfile.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+
+    
+
+
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"آبونمان/ تمدید حق عضویت","","",-1,-1,0,"memberShipFeeCartable.do?sort=0","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+
+    
+
+
+
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"گزارش ها","","",-1,-1,0,"allReport.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"بارگذاری گواهی امضای الکترونیکی","","",-1,-1,0,"digitalSignature.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"درخواست دوره آموزشی","","",-1,-1,0,"supplierCourse.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+    
+    
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"کنترل صحت عملکرد توکن","","",-1,-1,0,"tokenValidateOperationControl.do","_self","","","images/bt2.png","images/bt1.png",30,30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+    stm_aix("p0i1", "p0i0", [0,"تغيير کلمه عبور","","",-1,-1,0,"changePasswordNormalUser.do","_self","","","images/bt2.png","images/bt1.png", 30, 30]);
+    stm_ai("p0i2", [6,1,"#999999","",-1,-1,0]);
+    
+
+    
+
+    
+
+    
+
+
+    stm_ep();
+    stm_em();
+
+</script><div style="display:none"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></div><div style="display:none"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/icon_01.gif" border="0"></div><div style="display:none"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/icon_02.gif" border="0"></div><div style="display:none"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" border="0"></div><div style="display:none"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt1.png" border="0"></div><table id="stUI2" style="visibility: visible; border-style: none; background-color: transparent; background-image: none;" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" cellspacing="0" cellpadding="0" align="right"><tbody><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="background-color:transparent;border-style:none;background-image:none;"><table id="stUI2_body" style="border-style:none;background-color:transparent;background-image:none;" cellspacing="4" cellpadding="0" align="right"><tbody><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="#" target="_self" id="stUI3_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI3" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI3_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI3_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;"></span></td><td id="stUI3_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" id="stUI3_icoImg" width="30" height="1" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/home.do" target="_self" id="stUI4_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI4" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI4_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI4_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">صفحه&nbsp;اصلی</span></td><td id="stUI4_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI4_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI5" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/learn.do" target="_self" id="stUI6_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI6" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI6_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI6_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">سند&nbsp;راهنمای&nbsp;کاربر</span></td><td id="stUI6_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI6_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI7" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/trainingVideo.do" target="_self" id="stUI8_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI8" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI8_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI8_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">فیلم&nbsp;آموزشی</span></td><td id="stUI8_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI8_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI9" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/needResponseCartable.do?sort=0" target="_self" id="stUI10_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI10" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI10_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI10_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">پاسخ&nbsp;به&nbsp;نیاز&nbsp;ها</span></td><td id="stUI10_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI10_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI11" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/receivedInquiryCartable.do" target="_self" id="stUI12_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI12" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI12_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI12_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">&nbsp;استعلام&nbsp;های&nbsp;دریافتی</span></td><td id="stUI12_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI12_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI13" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/responseWinnerCartable.do?sort=0" target="_self" id="stUI14_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI14" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI14_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI14_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">پاسخ&nbsp;های&nbsp;پذیرفته&nbsp;شده</span></td><td id="stUI14_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI14_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI15" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/receivedOrderCartable.do?sort=0" target="_self" id="stUI16_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI16" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI16_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI16_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">سفارش&nbsp;های&nbsp;دریافتی</span></td><td id="stUI16_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI16_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI17" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/orderEditionCartable-loadAndSearch.do?sort=0" target="_self" id="stUI18_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI18" style="width: 100%; background-repeat: repeat; border-style: none; background-color: transparent; background-image: none; border-color: rgb(230, 239, 249);" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI18_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI18_txt" style="color: rgb(102, 102, 102); font: 8pt Tahoma; text-decoration: none; border-style: none; background-color: transparent; background-image: none; margin: 0px; padding: 0px;">الحاقیه&nbsp;های&nbsp;دریافتی&nbsp;(0)‏</span></td><td id="stUI18_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI18_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI19" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/purchaseDeliveryCartable.do?sort=0" target="_self" id="stUI20_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI20" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI20_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI20_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">&nbsp;&nbsp;ارسال&nbsp;کالا</span></td><td id="stUI20_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI20_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI21" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/sentInvoiceCartable-loadAndSearch.do" target="_self" id="stUI22_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI22" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI22_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI22_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">ارسال&nbsp;صورت&nbsp;وضعیت</span></td><td id="stUI22_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI22_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI23" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/supplierWageCartable-load.do" target="_self" id="stUI24_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI24" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI24_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI24_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">&nbsp;پرداخت&nbsp;کارمزد</span></td><td id="stUI24_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI24_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI25" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/performedPaymentTransactionCartable.do?sort=0" target="_self" id="stUI26_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI26" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI26_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI26_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">تاييد&nbsp;چك</span></td><td id="stUI26_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI26_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI27" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/supplierProfile.do" target="_self" id="stUI28_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI28" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI28_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI28_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">پروفایل</span></td><td id="stUI28_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI28_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI29" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/memberShipFeeCartable.do?sort=0" target="_self" id="stUI30_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI30" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI30_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI30_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">آبونمان/&nbsp;تمدید&nbsp;حق&nbsp;عضویت</span></td><td id="stUI30_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI30_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI31" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/allReport.do" target="_self" id="stUI32_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI32" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI32_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI32_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">گزارش&nbsp;ها</span></td><td id="stUI32_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI32_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI33" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/digitalSignature.do" target="_self" id="stUI34_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI34" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI34_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI34_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">بارگذاری&nbsp;گواهی&nbsp;امضای&nbsp;الکترونیکی</span></td><td id="stUI34_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI34_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI35" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/supplierCourse.do" target="_self" id="stUI36_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI36" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI36_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI36_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">درخواست&nbsp;دوره&nbsp;آموزشی</span></td><td id="stUI36_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI36_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI37" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/tokenValidateOperationControl.do" target="_self" id="stUI38_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI38" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI38_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI38_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">کنترل&nbsp;صحت&nbsp;عملکرد&nbsp;توکن</span></td><td id="stUI38_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI38_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI39" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><a tabindex="100" onclick="return _STNS.UI.fbDmEnt(event,this)" onkeydown="return _STNS.UI.fbDmEnt(event,this)" onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" href="https://eproc.setadiran.ir/eproc/changePasswordNormalUser.do" target="_self" id="stUI40_lnk" style="text-decoration:none;display:block;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;"><table onmouseover="return _STNS.UI.fbDmEnt(event,this)" onmouseout="return _STNS.UI.fbDmEnt(event,this)" onmousemove="return _STNS.UI.fbDmEnt(event,this)" id="stUI40" style="width:100%;background-repeat:repeat;border-style:none;background-color:transparent;background-image:none;" cellspacing="0" cellpadding="2"><tbody><tr><td id="stUI40_cnt" style="border-style:none;background-color:transparent;background-image:none;" valign="middle" nowrap="nowrap" align="right"> <span id="stUI40_txt" style="color:#666666;font:8pt Tahoma;text-decoration:none;border-style:none;background-color:transparent;background-image:none;margin:0px;padding:0px;">تغيير&nbsp;کلمه&nbsp;عبور</span></td><td id="stUI40_ico" style="width:30px;border-style:none;background-color:transparent;background-image:none;" align="right"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/bt2.png" id="stUI40_icoImg" width="30" height="30" border="0"></td></tr></tbody></table></a></td></tr><tr style="border-style:none;background-color:transparent;background-image:none;"><td style="border-style:none;background-color:transparent;background-image:none;"><table id="stUI41" style="font-size:1pt;line-height:1pt;width:100%;height:1px;background-color:#999999;border-style:none;background-image:none;" cellspacing="0" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img class="stimg" src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/blank.gif" border="0"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><script type="text/javascript" language="javascript1.2">_STNS.UI.oUIs['stUI2'].fbInit();_STNS.UI.oUIs['stUI2'].fbShow();</script>
+
+
+</td>
+
+</tr>
+
+<tr id="footer" height="50">
+    <td colspan="3"><img src="%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87%20%D8%AA%D8%AF%D8%A7%D8%B1%DA%A9%D8%A7%D8%AA%20%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%DB%8C%DA%A9%DB%8C%20%D8%AF%D9%88%D9%84%D8%AA_files/footer.jpg"></td>
+</tr>
+</tbody></table>
+
+
+
+<script>
+
+    jQuery(document).click(function (e) {
+
+
+        if (e.target.id == "showItemGrid" || e.target.id == "itemInfoMinus" || e.target.id == "itemInfoPlus") {
+
+
+
+
+        }
+        if (e.target.id == "showServiceGrid" || e.target.id == "serviceInfoMinus" || e.target.id == "serviceInfoPlus") {
+
+            if (gE("serviceInfoMinus").style.display == "") {
+
+                gE("serviceInfoMinus").style.display = "none";
+
+                gE("serviceInfoPlus").style.display = "";
+                jQuery('#serviceClose').val(true);
+            } else if (gE("serviceInfoPlus").style.display == "") {
+
+                gE("serviceInfoPlus").style.display = "none";
+                gE("serviceInfoMinus").style.display = "";
+                jQuery('#serviceClose').val(false);
+            }
+            jQuery("#serviceGrid").slideToggle("slow");
+
+            
+        }
+
+    });
+$('.itemPrice').change(function() {
+    dataChanged();
+    calcTotalPrice();
+});
+</script>
+
+</body></html>

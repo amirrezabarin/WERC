@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<connectionStrings>
+
+  <add name="WERCEntities" connectionString="metadata=res://*/WERC.csdl|res://*/WERC.ssdl|res://*/WERC.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=WERC;user id=sa;password=robotic;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+  <add name="IdentityDbContext" connectionString="Data Source=.;Initial Catalog=WERC;user id=sa;password=robotic" providerName="System.Data.SqlClient" />
+
+
+  <!--<add name="IdentityDbContext" connectionString="Data Source=.;Initial Catalog=WERC;user id=sa;password=robotic" providerName="System.Data.SqlClient" />
+  <add name="WERCEntities" connectionString="metadata=res://*/WERC.csdl|res://*/WERC.ssdl|res://*/WERC.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=WERCTEST;user id=sa;password=robotic;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />-->
+
+
+  <!--<add name="IdentityDbContext" connectionString="Data Source=cyberneticcode.com;Initial Catalog=WERC;user id=WERCAdmin;password=Robotic.1364" providerName="System.Data.SqlClient" />
+  <add name="WERCEntities" connectionString="metadata=res://*/WERC.csdl|res://*/WERC.ssdl|res://*/WERC.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=cyberneticcode.com;initial catalog=WERC;user id=WERCAdmin;password=Robotic.1364;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />-->
+
+
+
+</connectionStrings>

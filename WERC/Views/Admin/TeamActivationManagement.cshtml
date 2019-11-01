@@ -1,0 +1,38 @@
+﻿
+
+@using Model.ToolsModels.Grid;
+@using Model.ViewModels.Team;
+
+@model VmTeamFullInfoManagement
+
+@{
+    ViewBag.Title = "Team Full Info Management";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Model.ReadOnly = false;
+}
+
+<h4>  @Model["Team Activation"]  </h4>
+
+<hr />
+
+<div class="col-xs-12 col-sm-12">
+    @Html.Partial("PartialviewTeamActivationGrid", new VmJsGrid()
+{
+    DataAction = "gta",
+    DataController = "team",
+
+    EditAction = "etps",
+    EditController = "team",
+
+    ReadOnly = false,
+    HtmlElementId = "TeamFullInfo_TeamFullInfoJsGrid",
+    CurrentUserRoles = Model.CurrentUserRoles
+})
+</div>
+
+<script>
+    $(document).ready(function () {
+
+    });
+</script>
+

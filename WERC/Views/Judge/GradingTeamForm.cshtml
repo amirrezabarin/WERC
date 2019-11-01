@@ -1,0 +1,265 @@
+﻿
+@model Model.ViewModels.Grade.Grading.VmSingleTeamGradingManagement
+@using Model.ToolsModels.DropDownList
+
+@{
+    /**/
+
+    ViewBag.Title = "Grading Teams";
+    Layout = "~/Views/Shared/_LayoutJudge.cshtml";
+}
+
+
+<script src="~/Resources/Controls/summernote-0.8.11-dist/dist/summernote.js"></script>
+<link href="~/Resources/Controls/summernote-0.8.11-dist/dist/summernote.css" rel="stylesheet" />
+
+<script src="~/Resources/Controls/Signature/jSignature.min.js"></script>
+<!-- optional plugins -->
+<script src="~/Resources/Controls/Signature/jSignature.CompressorBase30.js"></script>
+<script src="~/Resources/Controls/Signature/jSignature.CompressorSVG.js"></script>
+<script src="~/Resources/Controls/Signature/jSignature.UndoButton.js"></script>
+<script src="~/Resources/Controls/Signature/jSignature.SignHere.js"></script>
+
+<link href="~/Resources/CSS/grading.css" rel="stylesheet" />
+
+<h3 id="teamNameSpan"><strong>  @Model.TeamName</strong></h3>
+
+<h3>
+    @*@DateTime.Now.Year Environmental Design Contest*@
+    @Model.Task - @Model.University
+
+</h3>
+
+<script>
+    var pointRadioButtonGroupNameArray = [];
+    var descriptionIdArray = [];
+    var signatureDataContainerIdArray = [];
+    var gradingDetailIdArray = [];
+    var gradingSaved = true;
+    var totalScore = 0;
+</script>
+
+
+
+<div class="col-xs-12">
+    <div id="_TestTable"></div>
+    <hr />
+</div>
+
+
+<div class="row">
+
+    <h4>  @Html.Label(@Model["Grade"], htmlAttributes: new { @class = "control-label col-xs-1" })</h4>
+    <div class="col-xs-6 grade-type-list">
+
+        @Html.Partial("_DropDownList", new VmDropDownList
+        {
+            HtmlElementId = "gradeDropDownList",
+            DataController = "grade",
+            DataAction = "ggddl",
+            OptionLabel = Model["Select score sheet ..."],
+            OnItemSelected = "GradeDropDownList_OnClientSelectedItem",
+        })
+
+        <input type="hidden" id="gradeIdsHidden" />
+
+        <script>
+            function GradeDropDownList_OnClientSelectedItem(id) {
+
+                if (gradingSaved == false) {
+
+                    var confirmDeleteDroppedDialogObjec =
+                    {
+                        title: "Warning...",
+                        message: '@Model["Are you sure you want to exit without saving your scores?"]',
+                        sender: null,
+                        width: "",
+                        height: "auto",
+                        dialogConfirmId: "confirmDialogContainer",
+                        yesButton: '@Model["Yes"]',
+                        noButton: '@Model["No"]',
+
+                        acceptCallbak: function (sender) {
+                            loadGradeForm(@Model.TeamId, id);
+                            $("#gradeIdsHidden").val(id);
+                        },
+
+                        rejectCallbak: function (sender) {
+
+                            setDropdownListActiveItemByValue('gradeDropDownList', $("#gradeIdsHidden").val());
+                        }
+                    };
+
+                    openConfirmDialog(confirmDeleteDroppedDialogObjec);
+
+                }
+                else {
+                    loadGradeForm(@Model.TeamId, id);
+                    $("#gradeIdsHidden").val(id);
+                }
+            }
+        </script>
+
+    </div>
+    <div class="col-xs-12">
+        <div id="_GradingTable"></div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-xs-12 text-center">
+        <br />
+        <input type="button" value="@Model["Save and Submit"]" class="btn btn-primary" onclick="submitData();" />
+
+    </div>
+</div>
+<script>
+    var gradingTableId = 'gradingTable' + $("#gradeIdsHidden").val();
+
+
+    function submitData() {
+
+          HoldOn.open({
+            theme: 'sk-cube-grid',
+            message: "<h4>@Model["Please wait..."]</h4>"
+        });
+
+        var gradingObject =
+            {
+                TeamId: 0,
+                GradeDetailId: 0,
+                Point: 0,
+                Description: "",
+                Signature: "",
+            };
+
+        var gradingObjectArray = [];
+
+        for (i = 0; i < pointRadioButtonGroupNameArray.length; i++) {
+
+            gradingObject = new Object();
+
+            var radioValue = $("input[name='" + pointRadioButtonGroupNameArray[i] + "']:checked").val();
+
+            gradingObject.TeamId = @Model.TeamId;
+            gradingObject.GradeDetailId = gradingDetailIdArray[i];
+            gradingObject.Description = $("#" + descriptionIdArray[i]).val();
+            gradingObject.Signature = $("#" + signatureDataContainerIdArray[i]).val();
+
+            if (radioValue && radioValue != 'null') {
+                gradingObject.Point = parseFloat(radioValue);
+            }
+            else {
+                gradingObject.Point = "null";
+            }
+
+            gradingObjectArray.push(gradingObject);
+        }
+
+        jsonData = JSON.stringify(
+            {
+                "clientGrading": gradingObjectArray,
+            });
+
+        $.ajax(
+            {
+                type: 'POST',
+                contentType: 'application/json',
+                url: '/grade/sg',
+                data: jsonData,
+
+            }).done(function (data, textStatus, jqXHR) {
+                if (data.success == true) {
+                    calculateTotal();
+                    alert("Grade has been saved.");
+                    HoldOn.close();
+                    gradingSaved = true;
+
+                }
+                else {
+                    //alert("Error in operation...");
+                    HoldOn.close();
+                }
+            }).fail(function (xhr, status) {
+            var jsonObject = JSON.parse(xhr.responseText);
+            if (jsonObject.hasError === true) {
+                //alert(jsonObject.message);
+                }
+                HoldOn.close();
+
+        });
+    }
+
+    function loadGradeForm(teamId, gradeId) {
+
+          HoldOn.open({
+            theme: 'sk-cube-grid',
+            message: "<h4>@Model["Please wait..."]</h4>"
+        });
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/grade/l_s_gtf',
+                data: {
+                    "teamId": teamId,
+                    "gradeId": gradeId,
+                },
+                dataType: "html",
+
+            }).done(function (data, textStatus, jqXHR) {
+
+                pointRadioButtonGroupNameArray = [];
+                descriptionIdArray = [];
+                signatureDataContainerIdArray = [];
+                gradingDetailIdArray = [];
+
+                $("#_GradingTable").html(data);
+
+                var scoresheet = $('#gradeDropDownList');
+                var value = scoresheet[0].options[scoresheet[0].options.selectedIndex].text;
+
+                $("#gradeTypeSpan").text("Your " + value + " Total: ");
+                $("#gradeTypeSpanTotalAvegrage").text("Total Average " + value + ": ");
+
+                @*$("#teamNameSpan").text('Team: @Model.TeamName');*@
+
+                gradingSaved = true;
+                calculateTotal();
+
+                HoldOn.close();
+
+
+            }).fail(function (xhr, status) {
+                //alert("Error in operation...");
+                HoldOn.close();
+
+        });
+    }
+
+
+</script>
+<script>
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/judge/lttf',
+                data: {
+                    "teamId": @Model.TeamId,
+                },
+                dataType: "html",
+
+            }).done(function (data, textStatus, jqXHR) {
+                debugger
+                $("#_TestTable").html(data);
+
+            }).fail(function (xhr, status) {
+                //alert("Error in operation...");
+
+
+        });
+
+</script>

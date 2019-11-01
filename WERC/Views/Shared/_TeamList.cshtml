@@ -1,0 +1,432 @@
+﻿@using Model.ViewModels.Team
+@using Model.ApplicationDomainModels
+
+@model  VmTeamCollection
+
+@{
+    var draggable = Model.Draggable ? "card orginalCard" : "margin-div-container";
+    var callInitialDragable = Model.Draggable ? "initialDragable(" + @Html.Raw(@Model.OnItemDragged) + ");" : "";
+    var cardDetail = Model.Draggable ? "card-detail" : "";
+    var clickEvent = Model.Draggable ? "_dragableTeamList_OnClick" : "_teamList_OnClick";
+    var newTeamStyle = "";
+    var LateTime = new DateTime(2019, 3, 26, 6, 0, 1);
+    var LateDays = 0.0;
+    var LateDaysTitle = "Written Report";
+}
+
+@if (Model.ShowSearchBox)
+{
+    <div class="form-group">
+        <input type="text" id="teamSearch" class="form-control" placeholder="Search team here..." />
+    </div>
+}
+
+@if (Model.Draggable)
+{
+    @Html.Raw("<div id='launchPad' class='row'>");
+}
+
+@foreach (var item in Model.TeamList)
+{
+    LateDaysTitle = "Written Report";
+
+    <div class="col-xs-12 col-sm-12 col-md-6 @draggable" id="@item.Id">
+        <div class="margin-div itemList-div-content" onclick="@clickEvent@Html.Raw("(this,")@item.Id)">
+            <div class="@newTeamStyle"></div>
+            <div id="teamImageDiv" class="col-xs-12 col-sm-12 col-md-4">
+                <div class="row">
+                    <img src="@item.UniversityPictureUrl"
+                         class="item-image " />
+                </div>
+            </div>
+
+            <div class="@cardDetail col-xs-12 col-sm-12 col-md-8">
+                <div class="card-item-detail">
+                    <span for="Name" class="card-item-detail-label">@Model["University"]:</span>
+                    <span id="Name" name="Name" class="card-item-detail-value" title=@Model["University"]> @item.University</span>
+                </div>
+                <div class="card-item-detail">
+                    <span for="Name" class="card-item-detail-label">@Model["Name"]:</span>
+                    <span id="Name" name="Name" class="card-item-detail-value" title=@Model["Team Name"]> @item.Name</span>
+                </div>
+                <div class="card-item-detail">
+                    <span for="Name" class="card-item-detail-label">@Model["Task"]:</span>
+                    <span id="Name" name="Name" class="card-item-detail-value" title=@Model["Task"]> @item.Task</span>
+                </div>
+                @if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Advisor") && item.PayStatus == true)
+                {
+                    <div class="card-item-detail">
+                        <span for="PayStatus" class="card-item-detail-label">@Model["Payment Status"]:</span>
+                        <span id="PayStatus" name="PayStatus" class="btn btn-primary btn-xs" title=@Model["Payment Status"]> Paid</span>
+                    </div>
+                }
+                else if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Advisor") && item.PayStatus == false)
+                {
+                    <div class="card-item-detail">
+                        <span for="PayStatus" class="card-item-detail-label">@Model["Payment Status"]:</span>
+                        <span id="PayStatus" name="PayStatus" class="btn btn-primary btn-xs" title=@Model["Payment Status"]> Unpaid</span>
+                    </div>
+                }
+                @if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Judge"))
+                {
+                    <div class="card-item-detail">
+                        <span for="Name" class="card-item-detail-label">@Model["Faculty Advisor"]:</span>
+                        <span id="Name" name="Name" class="card-item-detail-value"> @item.MemberName</span>
+                    </div>
+
+                }
+                  @if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Advisor"))
+                {
+                    <div class="card-item-detail">
+                        <a class="btn btn-primary btn-lg" href="~/student/fgrm/@item.Id">@Model["Final Scores"]</a>
+
+                    </div>
+
+                }
+
+            </div>
+            @if (Model.Draggable)
+            {
+                <p id="removeSection" class="col-xs-12 text-left hidden dropped-remove-item-position">
+                    <button type='button' id="@item.Id" class='btn btn-danger btn-sm btn-delete remove-draged-item-img' title="@Model["Delete"]" onclick='showDroppedDeleteItemConfirmDialog(this)'></button>
+                </p>
+            }
+            <div class="col-xs-offset-4 col-xs-8 text-right operation-key-bottom">
+
+
+                @if (Model.ReadOnlyForm == true)
+                {
+                    <div class="col-xs-2 text-right">
+                        <a href='/@Model.DataController/laef/@item.Id' title="@Model["Show"]" class='btn btn-success btn-sm btn-detail'></a>
+                    </div>
+                }
+
+
+                @if (Model.AllowReject == true)
+                {
+                    <div class="col-xs-2 text-right">
+                        <button type='button' class='btn btn-danger btn-md' onclick='doReject(this)' data-id="@item.Id">@Model["Reject"]</button>
+                    </div>
+
+                }
+                @if (Model.AllowAccept == true)
+                {
+                    <div class="col-xs-2 text-right">
+                        <button type='button' class='btn btn-success btn-md' onclick='doAccept(this)' data-id="@item.Id">@Model["Accept"]</button>
+                    </div>
+
+                }
+
+                @if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Judge_____________________________________________________"))
+                {
+                    <div class="col-xs-12 text-right">
+                        <button type='button' class='btn btn-success btn-sm btn-members' onclick='getTeamMember(this)' data-id="@item.Id">@Model[" Show Members"]</button>
+                    </div>
+
+                }
+
+            </div>
+
+            @if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Judge"))
+            {
+                if (item.WrittenReportDate != null && item.WrittenReportDate >= LateTime)
+                {
+
+                    LateDays = item.WrittenReportDate.Value.Subtract(LateTime).TotalDays;
+                    var result = LateDays - Math.Truncate(LateDays);
+
+                    if (result > 0)
+                    {
+                        LateDays++;
+                    }
+
+                    if (LateDays > 0)
+                    {
+                        LateDaysTitle = "Written Report \n Late " + Math.Truncate(LateDays) + "/s";
+                    }
+
+                }
+
+                <div class="col-xs-12">
+                    <div class="col-xs-4 text-left">
+
+                        @if (!string.IsNullOrEmpty(item.WrittenReportUrl) && item.WrittenReportUrl != "?CT=Stylish_not_ok.png")
+                        {
+
+                            <a href="@HttpUtility.HtmlDecode(@item.WrittenReportUrl)" target="_blank" class="btn btn-success btn-xs btn-image-in">
+                                @Html.Raw(Html.Encode(@LateDaysTitle).Replace("\n", "<br />"))
+                                <img src="/Resources/Images/Mimetypes128x128/@item.WrittenReportUrl.Split(new string[] { "?CT=" }, StringSplitOptions.RemoveEmptyEntries)[1]" class="image-list-small">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@HttpUtility.HtmlDecode(@item.WrittenReportUrl)" target="_blank" class="btn btn-success btn-xs btn-image-in">
+                                @Html.Raw(Html.Encode(@LateDaysTitle).Replace("\n", "<br />"))
+                                <img src="/Resources/Images/Stylish_not_ok.png" class="image-list-small">
+                            </a>
+                        }
+
+                    </div>
+
+                    @*<div class="col-xs-4 text-center">
+                            @{
+                                var labResultUrlList = new string[] { "/Resources/Images/Stylish_not_ok.png?CT=Stylish_not_ok.png" };
+                                if (!string.IsNullOrEmpty(item.LabResultUrl))
+                                {
+                                    labResultUrlList = item.LabResultUrl.Split(',');
+                                }
+                                var labResultUrlDiv = item.Id + "Div";
+                            }
+
+                            <button data-toggle="collapse" class="btn btn-success" data-target="#@labResultUrlDiv">
+                                @Model["Lab Result"]
+                                <b class="chevron-element glyphicon glyphicon-chevron-down"></b>
+                            </button>
+                            <div id="@labResultUrlDiv" class="collapse">
+
+                                @foreach (var labResultUr in @labResultUrlList)
+                                {
+
+                                    <div class="text-center">
+                                        <a href="@labResultUr">
+                                            <img src="/Resources/Images/Mimetypes128x128/@labResultUr.Split(new string[] { "?CT=" },StringSplitOptions.RemoveEmptyEntries)[1]" class="image-list">
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+
+                            <script>
+                                $("#@labResultUrlDiv").on('shown.bs.collapse', function () {
+
+                                    $(this).prev().children(".chevron-element").addClass("glyphicon-chevron-up");
+                                    $(this).prev().children(".chevron-element").removeClass("glyphicon-chevron-down");
+                                });
+
+                                $("#@labResultUrlDiv").on('hide.bs.collapse', function () {
+
+                                    $(this).prev().children(".chevron-element").addClass("glyphicon-chevron-down");
+                                    $(this).prev().children(".chevron-element").removeClass("glyphicon-chevron-up");
+                                });
+                            </script>
+                        </div>*@
+                    @if (item.SuppressScoring == false)
+                    {
+                        <div class="col-xs-4 text-left">
+
+                            <a href="/grade/lmsgtf/@item.Id" class="btn btn-danger">
+                                @Model["Grading"]
+                            </a>
+
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        <div id="teamMemberDiv" class="row text-left itemList-div-sub-content">
+        </div>
+    </div>
+}
+@if (Model.Draggable)
+{
+    @Html.Raw("</div>");
+}
+
+@if (Model.ShowSearchBox)
+{
+    <script>
+        $(document).ready(function () {
+
+            if (deviceIsTouchable == false) {
+                $("#teamSearch").focus();
+            }
+
+            $("#teamSearch").val('@Model.SearchText');
+
+            $("#teamSearch").keyup(function (e) {
+
+                if (e.keyCode != 13) {
+                    return;
+                }
+
+                var text = $("#teamSearch").val();
+                loadTeamData(text);
+
+            });
+
+            @callInitialDragable
+
+        });
+
+
+    </script>
+}
+
+<script>
+    var @Model.HtmlControlId = {
+      refresh : loadTeamData,
+    }
+
+    function getTeamMember(sender) {
+
+        if (sender.innerText == '@Model[" Show Members"]') {
+            $.ajax({
+                type: "POST",
+                url: "/teammember/shtm",
+                data: { teamId: $(sender).data('id') },
+                dataType: "html",
+            }).done(function (response) {
+                $("#teamMemberDiv").html(response);
+                $("#teamMemberDiv").parent().parent().addClass("itemList-div-content-full-height");
+                $("#teamMemberDiv").show();
+
+            }).fail( function (data, textStatus, XMLHttpRequest) {
+                $("#teamMemberDiv").html(response);
+
+            });
+            sender.innerText = '@Model[" Hide Members"]';
+        }
+        else {
+            sender.innerText = '@Model[" Show Members"]';
+            $("#teamMemberDiv").parent().parent().removeClass("itemList-div-content-full-height");
+            $("#teamMemberDiv").hide();
+
+        }
+    }
+
+function loadTeamData(searchText) {
+        $.ajax({
+            type: "POST",
+            url: "/@Model.DataController/@Model.DataAction",
+            data:
+                {
+                    dataAction: '@Model.DataAction',
+                    dataController: '@Model.DataController',
+                    allowDownlaod: '@Model.AllowDownlaod.ToString().ToLower()',
+                    showSearchBox: '@Model.ShowSearchBox.ToString().ToLower()',
+                    allowEdit: '@Model.AllowEdit.ToString().ToLower()',
+                    allowReject: '@Model.AllowReject.ToString().ToLower()',
+                    onItemRejecting: '@Model.OnItemRejecting',
+                    allowAccept: '@Model.AllowAccept.ToString().ToLower()',
+                    onItemAccepting: '@Model.OnItemAccepting',
+                    allowDelete: '@Model.AllowDelete.ToString().ToLower()',
+                    teamName: searchText,
+                    htmlControlId: '@Model.HtmlControlId',
+                    ParentHtmlControlId: '@Model.ParentHtmlControlId',
+                    onItemDragged: '@Model.OnItemDragged',
+                    OnItemSelected: '@Model.OnItemSelected',
+                    draggable: '@Model.Draggable.ToString().ToLower()',
+                },
+            dataType: "html",
+        }).done(function (response) {
+                $("#@Model.ParentHtmlControlId").html(response);
+            }).fail(function (data, textStatus, XMLHttpRequest) {
+                $("#@Model.ParentHtmlControlId").html(response);
+
+            });
+    }
+
+    function _teamList_OnClick(thisDiv, id) {
+
+         @if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Advisor"))
+         {
+            @Html.Raw("location.href='/advisor/tmm/' + id;")
+         }
+
+        @if (Request.IsAuthenticated && Model.CurrentUserRoles != null && Model.CurrentUserRoles.Contains("Leader"))
+         {
+            @Html.Raw("location.href='/leader/tmm/' + id;")
+         }
+
+        $(".itemList-div-content").each(function (index) {
+            $(this).removeClass("select-item-hihghlight");
+
+        });
+
+        $(thisDiv).addClass("select-item-hihghlight");
+
+        @{
+            var callFunction = "";
+            if (Model.OnItemSelected != "")
+            {
+                callFunction = Model.OnItemSelected  + Html.Raw("(id);");
+            }
+            @callFunction
+        }
+    }
+
+
+    function _dragableTeamList_OnClick(thisDiv, id) {
+
+        $("#launchPad").children().find(".itemList-div-content").each(function (index) {
+            $(this).removeClass("select-item-hihghlight");
+
+        });
+
+        $(thisDiv).addClass("select-item-hihghlight");
+
+        @{
+            var callFunctionDragable = "";
+            if (Model.OnItemSelected != "")
+            {
+                callFunctionDragable = Model.OnItemSelected  + Html.Raw("(id);");
+            }
+
+            @callFunctionDragable
+        }
+    }
+
+    function doAccept(sender) {
+
+        @if (Model.AllowAccept)
+        {
+            @Html.Raw(Model.OnItemAccepting + "($(sender).data('id'));");
+        }
+    }
+
+        function doReject(sender) {
+
+        @if (Model.AllowReject)
+        {
+            @Html.Raw(Model.OnItemRejecting + "($(sender).data('id'));");
+        }
+    }
+
+
+
+    function showDroppedDeleteItemConfirmDialog(sender) {
+
+        var confirmDeleteDroppedDialogObjec =
+            {
+                title: "Delete Team",
+                sender: sender,
+                width: "",
+                height: "auto",
+                dialogConfirmId: "confirmDialogContainer",
+                yesButton:'@Model["Yes"]',
+                noButton: '@Model["No"]',
+                acceptCallbak: function (sender) {
+                    $(sender).parent().parent().parent().fadeOut("slow", function () {
+
+                        $(this).remove();
+                        var id = $(this).attr("id");
+
+                        $("#launchPad").children("div[id=" + id + "]").find(".new-sign").removeClass("hidden");
+
+
+                        @if (!string.IsNullOrEmpty(@Model.OnItemDragged))
+                        {
+                            @Html.Raw(@Model.OnItemDragged + "()")
+                        }
+                    });
+                },
+                rejectCallbak: function (sender) { }
+            }
+
+        openConfirmDialog(confirmDeleteDroppedDialogObjec);
+    }
+
+
+
+</script>
+
+

@@ -1,0 +1,29 @@
+﻿@model  WERC.Models.VMConfirmEmail
+@{
+    ViewBag.Title = "Confirm Email";
+}
+<hr />
+
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+    <div>
+
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <p>
+                @Model.Message
+            </p>
+        }
+        else
+        {
+            <p>
+                Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </p>
+        }
+
+        <p>
+            If you have questions about the WERC Environmental Design Contest online platform, please call 575-646-8171 or email werc@nmsu.edu .
+        </p>
+    </div>
+    <div class="col-xs-2"></div>
+</div>
